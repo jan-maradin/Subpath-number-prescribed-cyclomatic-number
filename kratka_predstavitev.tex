@@ -1,0 +1,94 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+\Large\textbf{Poročilo – projektna naloga}\\[4pt]
+\large \textit{Skupina 18: Subpath number pri grafih z danim ciklomatskim številom}
+\end{center}
+
+\section*{Uvod}
+
+V projektu obravnavamo povezane grafe $G = (V, E)$, za katere je definirano \emph{ciklomatsko število}
+\[
+\mu(G) = |E| - |V| + 1.
+\]
+To število pove, koliko neodvisnih ciklov vsebuje graf oziroma koliko povezav bi morali odstraniti, da bi dobili gozd (acikličen graf). 
+Grafi z določenim $\mu(G) = k$ predstavljajo naravno posplošitev dreves ($\mu = 0$) in unocikličnih grafov ($\mu = 1$).
+Ti grafi se pojavljajo v številnih strukturnih in kombinatornih problemih, npr. pri načrtovanju omrežij, električnih vezjih in analizi programske kode.
+
+Cilj naloge je raziskati, kako se obnaša \emph{subpath number} grafa, torej število vseh enostavnih poti (vključno s potmi dolžine 0), pri grafih z danim $\mu(G) = k$.
+Zanima nas, kateri grafi imajo za dano število vozlišč $n$ in dano ciklomatsko število $k$ najmanjše oziroma največje število poti.
+
+\section*{Teoretično ozadje}
+
+Za vsak povezan graf velja $\mu(G) = |E| - |V| + 1$. 
+Pri drevesih je $\mu(G)=0$, pri dodajanju ene dodatne povezave dobimo unociklični graf ($\mu=1$), vsaka nova neodvisna povezava pa poveča $\mu(G)$ za $1$.
+Subpath number $p_n(G)$ štejemo kot skupno število vseh enostavnih poti v grafu, pri čemer se šteje tudi vsako vozlišče kot pot dolžine 0.
+
+Iz literature (Knor et al., 2025) so znani ekstremni primeri za \emph{kaktus grafe}, kjer se poljubna dva cikla stikata največ v enem vozlišču. 
+Za te grafe velja:
+\begin{itemize}
+    \item maksimalni $p_n(G)$ doseže t.i. \emph{pseudo triangle chain}, kjer so vsi notranji cikli trikotniki, oba končna pa se razlikujeta največ za eno vozlišče;
+    \item minimalni $p_n(G)$ doseže graf, kjer so vsi cikli \emph{end-trikotniki}, torej vsak trikotnik deli največ eno skupno vozlišče z ostalim grafom.
+\end{itemize}
+Namen projekta je preveriti, ali te lastnosti veljajo tudi pri splošnih grafih z enakim $\mu(G)$ in kako se subpath number spreminja pri različnih strukturah.
+
+\section*{Načrt raziskave}
+
+\textbf{Analiza za majhne grafe.}  
+V okolju SageMath bomo generirali vse povezane grafe do velikosti $n \le 8$ in za vsak graf izračunali:
+\[
+|V|, \quad |E|, \quad \mu(G), \quad \text{in približen } p_n(G).
+\]
+Pri majhnih grafih bomo število poti izračunali z iskanjem vseh enostavnih poti (DFS) med pari vozlišč.
+Na podlagi rezultatov bomo določili grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverili, ali so ti grafi kaktusnega tipa.
+
+\textbf{Eksperimentiranje za večje grafe.}  
+Za $n > 8$ bomo uporabili naključne povezane grafe, ustvarjene z metodo \texttt{graphs.RandomGNP(n,p)}, pri čemer bomo vzdrževali število povezav $|E| = n - 1 + k$.
+Za iskanje ekstremnih grafov bomo uporabili \emph{metahevristične algoritme}, kot sta \emph{simulirano ohlajanje} ali \emph{genetski algoritem}, ki bosta postopno spreminjala strukturo grafa in iskala konfiguracijo z večjim ali manjšim $p_n(G)$.
+Pri tem bomo analizirali, ali optimizacija privede do struktur, podobnih znanim ekstremnim kaktusom (verige trikotnikov) ali do popolnoma novih topologij.
+
+\section*{Pričakovani rezultati in hipoteze}
+
+Pričakujemo, da bo minimalni graf pri danem $\mu(G)=k$ imel vse cikle skoncentrirane v enem vozlišču (analogno \emph{pseudo friendship graphu}), medtem ko bodo grafi z največjim $p_n(G)$ imeli cikle razporejene v verigo, podobno \emph{pseudo triangle chainu}.
+Pri večjih grafih pričakujemo, da bodo pojavljeni lokalni ekstremi, kjer več prekrivajočih se ciklov povzroči le majhno povečanje števila poti zaradi redundance.
+
+\section*{Plan dela}
+
+\begin{center}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+\textbf{Dan} & \textbf{Naloga} \\
+\hline
+1–2 & Pregled teoretičnih osnov in članka »The subpath number of cactus graphs«. \\
+\hline
+3–4 & Implementacija kode za generiranje vseh povezanih grafov z $n \le 6$ in izračun $\mu(G)$. \\
+\hline
+5–6 & Izračun subpath numberja za majhne grafe in analiza ekstremov. \\
+\hline
+7–8 & Eksperimenti na večjih grafih z naključnim generiranjem in metahevristiko (simulirano ohlajanje). \\
+\hline
+9 & Povzetek rezultatov in primerjava s teoretičnimi pričakovanji. \\
+\hline
+10 & Priprava končnega poročila in priprava na zagovor. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Zaključek}
+
+Projekt bo združil teoretično analizo in eksperimentalne rezultate ter preveril, ali so ekstremni kaktusni grafi resnično ekstremni tudi v širšem razredu grafov z enakim ciklomatskim številom.
+Poseben poudarek bo na primerjavi med različnimi strukturami grafov in vplivu dodajanja povezav na število poti.
+Na ta način bomo poskusili prispevati k razumevanju vedenja inverzov grafa glede na topološko kompleksnost, merjeno s ciklomatskim številom.
+
+\end{document}
