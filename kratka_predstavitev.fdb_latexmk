@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1762685086.48178 "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" "kratka_predstavitev.pdf" "kratka_predstavitev" 1762685087.02807 0
+["pdflatex"] 1762710904.5618 "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" "kratka_predstavitev.pdf" "kratka_predstavitev" 1762710905.1221 0
   "/etc/texmf/web2c/texmf.cnf" 1762684837.38928 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" 1762683612.47195 5214 fd9904754ddc29bd7f0d4d4ea6ef0c7d ""
+  "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" 1762710904.30017 7047 494cafc7fc84e65ec9ce8e3ef68fe05a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm" 1136768653 3584 ad49a18d8515beef6d92d4d3f197d0fd ""
@@ -33,6 +33,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/babel-slovenian/slovene.ldf" 1612734893 4834 98ee81640c5ff33462d182c4f24765fe ""
@@ -42,6 +43,7 @@
   "/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def" 1704662920 6948 df63e25be1d2bc35bbad5a0141f41348 ""
   "/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty" 1644112042 7237 bdd120a32c8fdb4b433cf9ca2e7cd98a ""
   "/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty" 1572645307 1057 525c2192b5febbd8c1f662c9468335bb ""
+  "/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty" 1591045760 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1359763108 13829 94730e64147574077f8ecfea9bb69af4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
@@ -78,8 +80,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1762684886.23351 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1762685012 8215523 afff7a7d1445fa8dea5a7fcb150bcc23 ""
-  "kratka_predstavitev.aux" 1762685086.94435 132 b50e58fdf3b90d65156b8a1ced4e60d0 "pdflatex"
-  "kratka_predstavitev.tex" 1762683612.47195 5214 fd9904754ddc29bd7f0d4d4ea6ef0c7d ""
+  "kratka_predstavitev.aux" 1762710905.03343 132 0bd9b7a790c928e907979f052e1525bc "pdflatex"
+  "kratka_predstavitev.tex" 1762710904.30017 7047 494cafc7fc84e65ec9ce8e3ef68fe05a ""
   (generated)
   "kratka_predstavitev.aux"
   "kratka_predstavitev.log"
