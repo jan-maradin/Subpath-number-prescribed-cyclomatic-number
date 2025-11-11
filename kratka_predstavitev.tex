@@ -31,7 +31,6 @@ V projektu obravnavamo \emph{povezane} grafe $G = (V, E)$, za katere je definira
 \mu(G) = |E| - |V| + 1.
 \]
 To število pove, koliko neodvisnih ciklov vsebuje graf oziroma koliko povezav bi morali odstraniti, da bi dobili gozd (acikličen graf).
-TO POMOJEM NE RABIVA: Če je $\mu =0$ je graf drevo, saj nima cikov, če pa je $\mu= 1$ imamo enociklični graf.
 
 \textbf{CILJ NALOGE}: raziskati, kako se obnaša \emph{število podpoti in geodetskih podpoti grafa}, torej število vseh enostavnih poti (vključno s potmi dolžine 0), pri grafih z danim ciklomatičnim številom.
 Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano ciklomatsko število $ \mu = k$ najmanjše oziroma največje število poti.
@@ -46,6 +45,7 @@ Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano cikl
     \]
     Subpath number $p_n(G)$ štejemo kot skupno število vseh enostavnih poti v grafu, pri čemer se šteje tudi vsako vozlišče kot pot dolžine 0.
 \end{definition}
+\smallskip
 
 \begin{definition}[Geodetska pot in geodetska podpot]
     Naj bo $G$ povezan graf. Geodetska pot (angl.~\emph{geodesic path}) med vozliščema $u$ in $v$ 
@@ -53,10 +53,6 @@ Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano cikl
     Geodetska podpot pa je vsaka podpot geodetske poti.
 \end{definition}
 
-\textbf{Izrek} (Knor, 2025) 
-Graf $PTC(n, k)$ edinstveno maksimira število podpoti med vsemi kaktusnimi grafi z $n$ vozlišči in $k \ge 2$ cikli.
-
-\medskip
 \textbf{Kaktusni graf} je graf, v katerem se poljubna dva cikla stikata v največ enem vozlišču. 
 To pomeni, da se cikli lahko dotikajo, vendar se ne prekrivajo.
 
@@ -66,9 +62,8 @@ je poseben primer kaktusnega grafa, v katerem so vsi cikli trikotniki, povezani 
 in dosega največje možno število podpoti med vsemi takšnimi grafi.
 Zato se v projektu pogosto uporabi kot osnovni primer (tj. zgornja meja) 
 za primerjavo z drugimi grafi, ki imajo enako ciklomatično število~$\mu(G)$.
-Zgornji izrek lahko torej uporabimo kot "izhodišče", kaseneje pa bomo gledali ne samo kaktusne ampak tudi splošnejše grafe.
 
-\medskip
+\bigskip
 Graf $PTC(n,k)$ ima naslednje lastnosti:
 \begin{itemize}
     \item je kaktusni graf z $n$ vozlišči in $k$ cikli;
@@ -78,29 +73,30 @@ Graf $PTC(n,k)$ ima naslednje lastnosti:
     \item vsi cikli se stikajo v natanko enem vozlišču, zato graf tvori verižasto strukturo.
 \end{itemize}
 
+\textbf{Izrek} (Knor, 2025) 
+Graf $PTC(n, k)$ edinstveno maksimira število podpoti med vsemi kaktusnimi grafi z $n$ vozlišči in $k \ge 2$ cikli.
 
+\smallskip
+Ta izrek lahko torej uporabimo kot "izhodišče", kaseneje pa bomo gledali ne samo kaktusne ampak tudi splošnejše grafe.
+\bigskip
 
-IZ KJE VEMO DRUGO TOČKO
-Iz literature (Knor et al., 2025) so znani ekstremni primeri za \emph{kaktus grafe}, kjer se poljubna dva cikla stikata največ v enem vozlišču. 
-Za te grafe velja:
+\textbf{Iz literature (Knor, 2025):} za kaktusne grafe veljajo naslednji ekstremni primeri
 \begin{itemize}
     \item maksimalni $p_n(G)$ doseže t.i. \emph{pseudo triangle chain}, kjer so vsi notranji cikli trikotniki, oba končna pa se razlikujeta največ za eno vozlišče;
     \item minimalni $p_n(G)$ doseže graf, kjer so vsi cikli \emph{end-trikotniki}, torej vsak trikotnik deli največ eno skupno vozlišče z ostalim grafom.
 \end{itemize}
-Namen projekta je preveriti, ali te lastnosti veljajo tudi pri splošnih grafih z enakim $\mu(G)$ in kako se subpath number spreminja pri različnih strukturah.
 
-\section*{Načrt raziskave}
 
-\textbf{Analiza za majhne grafe.}  
+\section*{Plan dela}
+Projektno nalogo bova ločila na dva dela.
+\textbf{1. Analiza za majhne grafe.}  
 V okolju SageMath bomo generirali vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
-\[
-|V|, \quad |E|, \quad \mu(G), \quad \text{in }p_n(G).
-\]
+$|V|, |E|, \mu(G) \text{ in }p_n(G).$
 Pri majhnih grafih bomo število poti izračunali z iskanjem vseh enostavnih poti (DFS) med pari vozlišč.
 Na podlagi rezultatov bomo določili grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverili, ali so ti grafi kaktusnega tipa.
 
-\textbf{Eksperimentiranje za večje grafe.}  
-Za $n > 8$ bomo uporabili naključne povezane grafe, ustvarjene z metodo \texttt{graphs.RandomGNP(n,p)}, pri čemer bomo vzdrževali število povezav $|E| = n - 1 + k$.
+\textbf{2. Eksperimentiranje za večje grafe.}  
+Za $|v| > 8$ bomo uporabili naključne povezane grafe, ustvarjene z metodo \texttt{graphs.RandomGNP(n,p)}, pri čemer bomo vzdrževali število povezav $|E| = n - 1 + k$.
 Za iskanje ekstremnih grafov bomo uporabili \emph{metahevristične algoritme}, kot sta \emph{simulirano ohlajanje} ali \emph{genetski algoritem}, ki bosta postopno spreminjala strukturo grafa in iskala konfiguracijo z večjim ali manjšim $p_n(G)$.
 Pri tem bomo analizirali, ali optimizacija privede do struktur, podobnih znanim ekstremnim kaktusom (verige trikotnikov) ali do popolnoma novih topologij.
 

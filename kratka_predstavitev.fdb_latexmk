@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1762710904.5618 "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" "kratka_predstavitev.pdf" "kratka_predstavitev" 1762710905.1221 0
+["pdflatex"] 1762793542.0205 "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" "kratka_predstavitev.pdf" "kratka_predstavitev" 1762793542.59682 0
   "/etc/texmf/web2c/texmf.cnf" 1762684837.38928 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" 1762710904.30017 7047 494cafc7fc84e65ec9ce8e3ef68fe05a ""
+  "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/kratka_predstavitev.tex" 1762793541.70656 6710 13707f6a468cf24a77fab7d07097d379 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm" 1136768653 3584 ad49a18d8515beef6d92d4d3f197d0fd ""
@@ -80,8 +80,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1762684886.23351 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1762685012 8215523 afff7a7d1445fa8dea5a7fcb150bcc23 ""
-  "kratka_predstavitev.aux" 1762710905.03343 132 0bd9b7a790c928e907979f052e1525bc "pdflatex"
-  "kratka_predstavitev.tex" 1762710904.30017 7047 494cafc7fc84e65ec9ce8e3ef68fe05a ""
+  "kratka_predstavitev.aux" 1762793542.5113 132 0bd9b7a790c928e907979f052e1525bc "pdflatex"
+  "kratka_predstavitev.tex" 1762793541.70656 6710 13707f6a468cf24a77fab7d07097d379 ""
   (generated)
   "kratka_predstavitev.aux"
   "kratka_predstavitev.log"
