@@ -88,12 +88,17 @@ Ta izrek lahko torej uporabimo kot "izhodišče", kaseneje pa bomo gledali ne sa
 
 
 \section*{Plan dela}
-Projektno nalogo bova ločila na dva dela.
+Projektno nalogo bova ločila na dva dela. \\
 \textbf{1. Analiza za majhne grafe.}  
-V okolju SageMath bomo generirali vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
+V okolju SageMath bomo s pomočjo funkcije $geng$ generirali vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
 $|V|, |E|, \mu(G) \text{ in }p_n(G).$
 Pri majhnih grafih bomo število poti izračunali z iskanjem vseh enostavnih poti (DFS) med pari vozlišč.
-Na podlagi rezultatov bomo določili grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverili, ali so ti grafi kaktusnega tipa.
+Ker SageMath ne vsebuje vgrajene funkcije za štetje vseh enostavnih poti,
+smo uporabili rekurzivni pristop. Funkcija \texttt{all\_simple\_paths(G, start, end)}
+poišče vse poti med vozliščema \texttt{start} in \texttt{end}, tako da
+postopno obiskuje sosednja vozlišča, pri čemer se izogiba že obiskanih točk.
+Za vsak par vozlišč $(u, v)$ se nato prešteje število poti in sešteje.
+Na podlagi rezultatov bomo določili grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverili, ali so ti grafi kaktusnega tipa. 
 
 \textbf{2. Eksperimentiranje za večje grafe.}  
 Za $|v| > 8$ bomo uporabili naključne povezane grafe, ustvarjene z metodo \texttt{graphs.RandomGNP(n,p)}, pri čemer bomo vzdrževali število povezav $|E| = n - 1 + k$.
@@ -101,31 +106,11 @@ Za iskanje ekstremnih grafov bomo uporabili \emph{metahevristične algoritme}, k
 Pri tem bomo analizirali, ali optimizacija privede do struktur, podobnih znanim ekstremnim kaktusom (verige trikotnikov) ali do popolnoma novih topologij.
 
 \section*{Pričakovani rezultati in hipoteze}
-
-Pričakujemo, da bo minimalni graf pri danem $\mu(G)=k$ imel vse cikle skoncentrirane v enem vozlišču (analogno \emph{pseudo friendship graphu}), medtem ko bodo grafi z največjim $p_n(G)$ imeli cikle razporejene v verigo, podobno \emph{pseudo triangle chainu}.
+Verjamemo, da bo $p_n(G)$ najmanjši pri drevesih in večji pri grafih z večjim ciklomatskim številom.Na podlagi dane literature,
+pričakujemo, da bo minimalni $p_n(G)$ pri zaporedno vezanih ciklih v kaktusnem grafu(\emph{Pseudo Triangle Chain}) in maksimalen v primeru, ko bodo vsi cikli imeli isto skupno vozlišče.
 Pri večjih grafih pričakujemo, da bodo pojavljeni lokalni ekstremi, kjer več prekrivajočih se ciklov povzroči le majhno povečanje števila poti zaradi redundance.
 
-\section*{Plan dela}
 
-\begin{center}
-\begin{tabular}{|c|p{10cm}|}
-\hline
-\textbf{Dan} & \textbf{Naloga} \\
-\hline
-1–2 & Pregled teoretičnih osnov in članka »The subpath number of cactus graphs«. \\
-\hline
-3–4 & Implementacija kode za generiranje vseh povezanih grafov z $n \le 6$ in izračun $\mu(G)$. \\
-\hline
-5–6 & Izračun subpath numberja za majhne grafe in analiza ekstremov. \\
-\hline
-7–8 & Eksperimenti na večjih grafih z naključnim generiranjem in metahevristiko (simulirano ohlajanje). \\
-\hline
-9 & Povzetek rezultatov in primerjava s teoretičnimi pričakovanji. \\
-\hline
-10 & Priprava končnega poročila in priprava na zagovor. \\
-\hline
-\end{tabular}
-\end{center}
 
 \section*{Zaključek}
 
