@@ -30,10 +30,10 @@
         \[
         \mu(G) = |E| - |V| + 1.
         \]
-        To število pove, koliko neodvisnih ciklov vsebuje graf oziroma koliko povezav bi morali odstraniti, da bi dobili gozd (acikličen graf).
+        To število pove, koliko neodvisnih ciklov vsebuje graf oziroma koliko povezav bi morali odstraniti, da bi dobili gozd.
 
         \textbf{CILJ NALOGE}: raziskati, kako se obnaša \emph{število podpoti in geodetskih podpoti grafa}, torej število vseh enostavnih poti (vključno s potmi dolžine 0), pri grafih z danim ciklomatičnim številom.
-        Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano ciklomatsko število $ \mu = k$ najmanjše oziroma največje število poti.
+        Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano ciklomatsko število $ \mu = k$ najmanjše oziroma največje število podpoti.
 
     \section*{Teoretično ozadje}
 
@@ -49,7 +49,7 @@
 
         \begin{definition}[Geodetsko število]
             Naj bo $G = (V,E)$ povezan graf. 
-            \emph{Geodetsko število podpoti} grafa $G$, označeno z $gp_n(G)$,
+            \emph{Geodetsko število podpoti} $gp_n(G)$,
             definiramo kot skupno število vseh geodetskih enostavnih poti v grafu.
             Za vsaka dva vozlišča $u, v \in V(G)$ označimo z $d(u,v)$ razdaljo med njima,
             z $\sigma^*(u,v)$ pa število vseh enostavnih $u$--$v$ poti dolžine $d(u,v)$.
@@ -75,10 +75,10 @@
             Graf $PTC(n,k)$ ima naslednje lastnosti:
         \begin{itemize}
             \item je kaktusni graf z $n$ vozlišči in $k$ cikli;
-            \item vsak notranji cikel je trikotnik (ima 3 vozlišča);
+            \item vsak notranji cikel je trikotnik;
             \item cikli so med seboj povezani v verigo (en za drugim);
             \item prvi in zadnji cikel se lahko rahlo razlikujeta po velikosti (imata lahko 4 vozlišča namesto 3);
-            \item vsi cikli se stikajo v natanko enem vozlišču, zato graf tvori verižasto strukturo.
+            \item vsi cikli se stikajo v natanko enem vozlišču, zato graf tvori verižno strukturo.
         \end{itemize}
 
         \textbf{Izrek} (Knor, 2025) 
@@ -131,14 +131,15 @@
         med pari vozlišč. Na podlagi znane literature o kaktusnih grafih domnevamo, da bo
         minimalni $p_n(G)$ dosežen pri zaporedno povezanih ciklih, kjer
         so cikli razporejeni v verigo in tako le lokalno povečujejo število poti.
-        Največji $p_n(G)$ pa pričakujemo pri strukturi, kjer imajo vsi cikli skupno vozlišče
-        (\emph{star cactus}), saj takšna razporeditev ustvarja veliko število alternativnih poti
+        Največji $p_n(G)$ pa pričakujemo pri strukturi, kjer imajo vsi cikli skupno vozlišče,
+        saj takšna razporeditev ustvarja veliko število alternativnih poti
         prek centralnega vozlišča.
 
-        Pri večjih grafih, kjer popolnega pregleda ni mogoče izvesti, pričakujemo pojav lokalnih
-        ekstremov, zlasti v primerih, ko se cikli prekrivajo ali medsebojno vplivajo na način,
-        ki ne povečuje večjega števila novih enostavnih poti. Takšne strukture lahko povzročijo
-        le majhno rast $p_n(G)$ kljub večjemu številu povezav, kar želimo podrobno analizirati
-        s pomočjo simuliranega ohlajanja.
+        Pri večjih grafih, kjer vseh možnosti ne moremo več izračunati, pričakujemo pojav
+        lokalnih ekstremov. Do njih pogosto pride takrat, ko se cikli v grafu prekrivajo
+        ali si delijo vozlišča, zaradi česar dodatne povezave ne prinesejo več veliko novih
+        enostavnih poti. V takih primerih $p_n(G)$ raste zelo počasi, čeprav ima graf več
+        povezav. To želimo natančneje raziskati s pomočjo simuliranega ohlajanja, ki nam
+        lahko pomaga poiskati te lokalne maksimume in minimume pri večjih grafih.
 
 \end{document}
