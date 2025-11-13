@@ -20,20 +20,22 @@
 \begin{document}
 
     \begin{center}
-    \Large\textbf{Kratko poročilo – projektna naloga}\\[4pt]
-    \large \textit{Skupina 18: Število podpoti pri grafih z danim ciklomatskim številom}
+    \Large\textbf{Število podpoti pri grafih z danim ciklomatskim številom}\\[4pt]
+    \large \textit{Kratko poročilo projektne naloge}\\
+    \large \textit{Skupina 18: Maja Košmrlj, Jan Maradin}
     \end{center}
 
     \section*{Uvod}
 
-        V projektu obravnavamo \emph{povezane} grafe $G = (V, E)$, za katere je definirano \emph{ciklomatsko število}
+        V projektu obravnavamo \emph{povezane} grafe $G = (V, E)$, za katere je definirano \emph{ciklomatsko število:}
         \[
         \mu(G) = |E| - |V| + 1.
         \]
         To število pove, koliko neodvisnih ciklov vsebuje graf oziroma koliko povezav bi morali odstraniti, da bi dobili gozd.
 
-        \textbf{CILJ NALOGE}: raziskati, kako se obnaša \emph{število podpoti in geodetskih podpoti grafa}, torej število vseh enostavnih poti (vključno s potmi dolžine 0), pri grafih z danim ciklomatičnim številom.
-        Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano ciklomatsko število $ \mu = k$ najmanjše oziroma največje število podpoti.
+        Cilj projektne naloge je raziskati, kako se obnaša \emph{število podpoti in geodetskih podpoti grafa}, torej število vseh enostavnih poti (vključno s potmi dolžine 0), pri grafih z danim ciklomatičnim številom.
+        Zanima nas, kateri grafi imajo za dano število vozlišč $|V| = n$ in dano ciklomatsko število $ \mu(G) = k$ najmanjše oziroma največje število podpoti.
+
 
     \section*{Teoretično ozadje}
 
@@ -92,25 +94,26 @@
 
 
     \section*{Plan dela}
-        Projektno nalogo bova ločila na dva dela. \\
-        \textbf{1. Analiza za majhne grafe.}  
-        V okolju SageMath bomo s pomočjo funkcije \emph{geng} generirali vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
-        $|V|, |E|, \mu(G) \text{ in }p_n(G),$ \\
-        $gp_n(G).$
-        Pri majhnih grafih bomo $p_n(G)$ izračunali z iskanjem vseh enostavnih poti med pari vozlišč.
-        Ker SageMath ne vsebuje vgrajene funkcije za štetje vseh enostavnih poti,
-        smo uporabili rekurzivni pristop. Funkcija \texttt{all\_simple\_paths(G, start, end)}
-        poišče vse poti med vozliščema \texttt{start} in \texttt{end}, tako da
-        postopno obiskuje sosednja vozlišča, pri čemer se izogiba že obiskanih točk.
-        Za vsak par vozlišč $(u, v)$ se nato prešteje število poti in sešteje.
-        Na podlagi rezultatov bomo določili grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverili, ali so ti grafi kaktusnega tipa. 
+        Projektno nalogo bova ločila na dva dela.
 
-        \textbf{2. Analiza za večje grafe.}  
-        Za grafe z več kot osmimi vozlišči bomo uporabili metodo simuliranega ohlajanja, saj popolna
-        generacija vseh neizomorfnih grafov pri tej velikosti postane računsko neizvedljiva.
-        Za dani vrednosti $n$ in $\mu(G)=k$ bomo najprej ustvarili povezani graf z $n$ 
+        \smallskip
+        \textbf{1. Analiza za majhne grafe.} \\ 
+        V okolju SageMath bova s pomočjo funkcije \emph{.geng} generirala vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
+        $|V|, |E|, \mu(G), gp_n(G) \text{ in }p_n(G).$
+        Pri majhnih grafih bova $p_n(G)$ izračunali z iskanjem vseh enostavnih poti med pari vozlišč.
+        Ker SageMath ne vsebuje vgrajene funkcije za štetje vseh enostavnih poti,
+        sva uporabila rekurzivni pristop. Funkcija \texttt{all\_simple\_paths(G, start, end)}
+        poišče vse poti med vozliščema \texttt{start} in \texttt{end}, tako da
+        postopno obiskuje sosednja vozlišča, pri čemer se izogiba že obiskanim točkam.
+        Za vsak par vozlišč $(u, v)$ se nato prešteje število poti in na koncu sešteje.
+        Na podlagi rezultatov bova določila grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverila, ali so ti grafi kaktusnega tipa. 
+
+        \textbf{2. Analiza za večje grafe.}  \\
+        Za grafe z več kot osmimi vozlišči bova uporabila metodo simuliranega ohlajanja, saj popolna
+        generacija vseh neizomorfnih grafov pri tej velikosti postane računsko prezahtevna.
+        Za dani vrednosti $|V|= n$ in $\mu(G)=k$ bova najprej ustvarila povezani graf z $n$ 
         vozlišči in točno $m=n-1+k$ povezavami, za katerega si mislimo da je podoben optimalnemu. Ta graf bo začetno stanje algoritma. 
-        V vsakem koraku bomo izvedli majhno lokalno spremembo grafa (t.i.\ \emph{edge swap}), pri kateri
+        V vsakem koraku bova izvedla majhno lokalno spremembo grafa (t.i.\ \emph{edge swap}), pri kateri
         odstranimo en obstoječi rob in ga nadomestimo z novim, tako da ohranimo število povezav in 
         s tem tudi ciklomatsko število. Novo stanje sprejmemo vedno, kadar se vrednost $p_n(G)$ izboljša. 
         Če se vrednost poslabša, takšno stanje sprejmemo le z verjetnostjo 
@@ -118,28 +121,28 @@
         $T$ pa trenutna temperatura. Pri višjih temperaturah algoritem pogosteje 
         sprejema slabše korake, kar mu omogoča izogibanje lokalnim optimumom. 
         Ko temperaturo postopoma znižujemo po pravilu $T_{k+1} = \alpha T_k$, 
-        postane algoritem vedno bolj "konservativen" in sprejema skoraj izključno 
-        korake, ki izboljšajo rezultat. Po koncu iteracij kot končno rešitev vzamemo 
+        postane algoritem vedno bolj ˝konservativen˝ in sprejema skoraj izključno 
+        korake, ki izboljšajo rezultat. Po koncu iteracij bova kot končno rešitev vzela 
         tisti graf, ki je med izvajanjem dosegel največjo (oziroma najmanjšo) 
-        vrednost $p_n(G)$, ter ga primerjamo z znanimi ekstremnimi kaktusnimi 
+        vrednost $p_n(G)$, ter ga primerjala z znanimi ekstremnimi kaktusnimi 
         grafi za iste vrednosti $n$ in $\mu(G)$.
 
     \section*{Pričakovani rezultati in hipoteze}
 
-        Pričakujemo, da bo vrednost $p_n(G)$ najnižja pri drevesih in bo naraščala z večanjem
+        Pričakujeva, da bo vrednost $p_n(G)$ najnižja pri drevesih in bo naraščala z večanjem
         ciklomatskega števila $\mu(G)$, saj dodatni cikli omogočajo več različnih enostavnih poti
-        med pari vozlišč. Na podlagi znane literature o kaktusnih grafih domnevamo, da bo
+        med pari vozlišč. Na podlagi znane literature o kaktusnih grafih je najina domneva, da bo
         minimalni $p_n(G)$ dosežen pri zaporedno povezanih ciklih, kjer
         so cikli razporejeni v verigo in tako le lokalno povečujejo število poti.
-        Največji $p_n(G)$ pa pričakujemo pri strukturi, kjer imajo vsi cikli skupno vozlišče,
+        Največji $p_n(G)$ pa pričakujeva pri strukturi, kjer imajo vsi cikli skupno vozlišče,
         saj takšna razporeditev ustvarja veliko število alternativnih poti
         prek centralnega vozlišča.
 
-        Pri večjih grafih, kjer vseh možnosti ne moremo več izračunati, pričakujemo pojav
+        Pri večjih grafih, kjer vseh možnosti ne moremo več izračunati, pričakujeva pojav
         lokalnih ekstremov. Do njih pogosto pride takrat, ko se cikli v grafu prekrivajo
         ali si delijo vozlišča, zaradi česar dodatne povezave ne prinesejo več veliko novih
         enostavnih poti. V takih primerih $p_n(G)$ raste zelo počasi, čeprav ima graf več
-        povezav. To želimo natančneje raziskati s pomočjo simuliranega ohlajanja, ki nam
+        povezav. To želiva natančneje raziskati s pomočjo simuliranega ohlajanja, ki nama
         lahko pomaga poiskati te lokalne maksimume in minimume pri večjih grafih.
 
 \end{document}
