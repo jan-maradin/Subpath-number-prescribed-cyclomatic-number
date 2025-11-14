@@ -45,7 +45,7 @@
             \[
             v_i v_{i+1} \dots v_j, \quad \text{kjer } 1 \le i < j \le k.
             \]
-            Subpath number $p_n(G)$ štejemo kot skupno število vseh enostavnih poti v grafu, pri čemer se šteje tudi vsako vozlišče kot pot dolžine 0.
+            Število podpoti $p_n(G)$ skupno število vseh enostavnih poti v grafu, pri čemer se šteje tudi vsako vozlišče kot pot dolžine 0.
         \end{definition}
         \smallskip
 
@@ -67,46 +67,30 @@
         To pomeni, da se cikli lahko dotikajo, vendar se ne prekrivajo.
 
         \medskip
-        \textbf{Graf PTC(n,k)} (angl.~\emph{Pseudo Triangle Chain}), slovensko psevdotrikotna veriga, 
-        je poseben primer kaktusnega grafa, v katerem so vsi cikli trikotniki, povezani v verigo, 
-        in dosega največje možno število podpoti med vsemi takšnimi grafi.
-        Zato se v projektu pogosto uporabi kot osnovni primer (tj. zgornja meja) 
+        \textbf{Graf PTC(n,k)} (angl.~\emph{Pseudo Triangle Chain}), oziroma psevdotrikotna veriga, 
+        je poseben primer kaktusnega grafa z \emph{n} vozliščci in $k$ cikli. Vsi cikli so trikotniki, povezani v verigo
+        in zato graf dosega največje možno število podpoti med vsemi takšnimi grafi.
+        To je razlog, da jih v projektu pogosto uporabimo kot osnovni primer (tj. zgornja meja) 
         za primerjavo z drugimi grafi, ki imajo enako ciklomatično število~$\mu(G)$.
-
-        \bigskip
-            Graf $PTC(n,k)$ ima naslednje lastnosti:
-        \begin{itemize}
-            \item je kaktusni graf z $n$ vozlišči in $k$ cikli;
-            \item vsak notranji cikel je trikotnik;
-            \item cikli so med seboj povezani v verigo (en za drugim);
-            \item prvi in zadnji cikel se lahko rahlo razlikujeta po velikosti (imata lahko 4 vozlišča namesto 3);
-            \item vsi cikli se stikajo v natanko enem vozlišču, zato graf tvori verižno strukturo.
-        \end{itemize}
-
+        
+        \medskip
         \textbf{Izrek} (Knor, 2025) 
         Graf $PTC(n, k)$ enolično maksimizira število podpoti med vsemi kaktusnimi grafi z $n$ vozlišči in $k \ge 2$ cikli.
-
-        \textbf{Iz literature (Knor, 2025):} za kaktusne grafe veljajo naslednji ekstremni primeri
-        \begin{itemize}
-            \item maksimalni $p_n(G)$ doseže t.i. \emph{pseudo triangle chain}, kjer so vsi notranji cikli trikotniki, oba končna pa se razlikujeta največ za eno vozlišče;
-            \item minimalni $p_n(G)$ doseže graf, kjer so vsi cikli \emph{end-trikotniki}, torej vsak trikotnik deli največ eno skupno vozlišče z ostalim grafom.
-        \end{itemize}
-
 
     \section*{Plan dela}
         Projektno nalogo bova ločila na dva dela.
 
         \smallskip
         \textbf{1. Analiza za majhne grafe.} \\ 
-        V okolju SageMath bova s pomočjo funkcije \emph{.geng} generirala vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
+        V okolju SageMath bova s pomočjo funkcije $graphs.nauty\_geng$ generirala vse povezane grafe z števili vozlišč $n \le 8$ in za vsak graf izračunali:
         $|V|, |E|, \mu(G), gp_n(G) \text{ in }p_n(G).$
-        Pri majhnih grafih bova $p_n(G)$ izračunali z iskanjem vseh enostavnih poti med pari vozlišč.
-        Ker SageMath ne vsebuje vgrajene funkcije za štetje vseh enostavnih poti,
+        Pri majhnih grafih bova $p_n(G)$ izračunali z iskanjem vseh enostavnih podpoti med pari vozlišč.
+        Ker SageMath ne vsebuje vgrajene funkcije za štetje vseh enostavnih podpoti,
         sva uporabila rekurzivni pristop. Funkcija \texttt{all\_simple\_paths(G, start, end)}
         poišče vse poti med vozliščema \texttt{start} in \texttt{end}, tako da
-        postopno obiskuje sosednja vozlišča, pri čemer se izogiba že obiskanim točkam.
-        Za vsak par vozlišč $(u, v)$ se nato prešteje število poti in na koncu sešteje.
-        Na podlagi rezultatov bova določila grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$ ter preverila, ali so ti grafi kaktusnega tipa. 
+        postopno obiskuje sosednja vozlišča, pri čemer se izogiba že obiskanim vozliščem.
+        Za vsak par vozlišč $(u,v)$ funkcija prešteje vse enostavne podpoti, nato pa se vse dobljene vrednosti seštejejo v končno vrednost $p_n(G)$.
+        Na podlagi rezultatov bova določila grafe, ki imajo minimalni in maksimalni $p_n(G)$ pri enakem $\mu(G)$. 
 
         \textbf{2. Analiza za večje grafe.}  \\
         Za grafe z več kot osmimi vozlišči bova uporabila metodo simuliranega ohlajanja, saj popolna
@@ -118,9 +102,9 @@
         s tem tudi ciklomatsko število. Novo stanje sprejmemo vedno, kadar se vrednost $p_n(G)$ izboljša. 
         Če se vrednost poslabša, takšno stanje sprejmemo le z verjetnostjo 
         $e^{(\Delta/T)}$, kjer je $\Delta$ razlika med novim in trenutnim stanjem, 
-        $T$ pa trenutna temperatura. Pri višjih temperaturah algoritem pogosteje 
-        sprejema slabše korake, kar mu omogoča izogibanje lokalnim optimumom. 
-        Ko temperaturo postopoma znižujemo po pravilu $T_{k+1} = \alpha T_k$, 
+        $T$ pa trenutna temperatura. V algoritmu bova začela pri višjih temperaturah, da bova
+        lahko z večjo verjetnostjo našla globalni ekstrem in ne samo lokalnega, glede na
+        graf, ki ga bova podala kot začetno stanje. Ko temperaturo postopoma znižujemo po pravilu $T_{k+1} = \alpha T_k$, 
         postane algoritem vedno bolj ˝konservativen˝ in sprejema skoraj izključno 
         korake, ki izboljšajo rezultat. Po koncu iteracij bova kot končno rešitev vzela 
         tisti graf, ki je med izvajanjem dosegel največjo (oziroma najmanjšo) 
@@ -136,13 +120,14 @@
         so cikli razporejeni v verigo in tako le lokalno povečujejo število poti.
         Največji $p_n(G)$ pa pričakujeva pri strukturi, kjer imajo vsi cikli skupno vozlišče,
         saj takšna razporeditev ustvarja veliko število alternativnih poti
-        prek centralnega vozlišča.
+        preko centralnega vozlišča.
 
-        Pri večjih grafih, kjer vseh možnosti ne moremo več izračunati, pričakujeva pojav
-        lokalnih ekstremov. Do njih pogosto pride takrat, ko se cikli v grafu prekrivajo
-        ali si delijo vozlišča, zaradi česar dodatne povezave ne prinesejo več veliko novih
-        enostavnih poti. V takih primerih $p_n(G)$ raste zelo počasi, čeprav ima graf več
-        povezav. To želiva natančneje raziskati s pomočjo simuliranega ohlajanja, ki nama
-        lahko pomaga poiskati te lokalne maksimume in minimume pri večjih grafih.
+        Pri večjih grafih pričakujeva pojav lokalnih ekstremov, saj dodatne povezave ne povečajo vedno
+        števila enostavnih poti. Na podlagi literature o kaktusnih grafih domneva­va, da bodo strukture,
+        pri katerih cikli delijo vozlišča ali so med seboj preblizu, ustvarile le majhen prirastek 
+        $p_n(G)$, medtem ko bodo jasno ločeni cikli še naprej povečevali število podpoti. Zato 
+        pričakujeva, da se bodo lokalni maksimumi in minimumi pri večjih $n$ pojavljali predvsem v 
+        grafih, kjer je razporeditev ciklov manj učinkovita pri ustvarjanju novih poti, kar bova 
+        preverila s simuliranim ohlajanjem.
 
 \end{document}
