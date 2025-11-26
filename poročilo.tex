@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsthm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definicija}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Opomba}
+
+\geometry{margin=2.5cm}
+\setlength{\parskip}{0.8em}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    \begin{center}
+        \Large\textbf{Število podpoti pri grafih z danim ciklomatskim številom}\\[4pt]
+        \large \textit{Poročilo projektne naloge}\\
+        \large \textit{Skupina 18: Maja Košmrlj, Jan Maradin}
+    \end{center}
+
+
+    \section*{vprašanja za profesorja}
+        \begin{itemize}
+            \item ali lahko midva brez geodetskih podpoti, ker imava občutek da nama bo časa zmanjkalo
+            še posebej zaradi tega da vse tako dolgo traja
+            \item kakšno temperaturo morava uporabljati, sedaj imava delala predvsem 
+            \item ali je okej, da midva napiševa kodo, tako da ko jo ponovno poženeva posodobi podatke,
+            torej da večkrat ko poženeva kodo boljši rezultat najde, \\
+            ali je poanta, da najdeva midva način, kako z dobrimi približki prideva že od enem pogonu do 
+            dobrega približka
+            \item kakšno analizo morava narediti, ali lahko damo v R v tabelo ali v excel?
+
+        \end{itemize}
+
+
+
+    \section*{Najini podvigi}
+
+    \begin{itemize}
+        \item 
+        \item  ko sva probala za n = 9 in N = 4000 izvesti po Janovi metodi smo porabili
+        do mu= 18  je rabil 20 minut kar je očitno čisto preveč počasi, saj bi s tem
+        tempom delal za vse mu pri n = 9 rabil po vsej verjetnosti več ur
+        \item Zagnala sva iskanje minimuma za $n = 9$ po Janovi metodi z nastavitvami
+        \texttt{max\_steps = 300}, \texttt{T\_start = 3}, \texttt{T\_end = 0.001},
+        \texttt{cooling = 0.99}. Računanje je trajalo približno 32 minut.\\
+        naslednji ko sva pognala je trajalo 41 min (opomba: runnala sta dve funkcije hkrati)
+        Problem: ker za $n = 9$ ne začnemo več z dobrim približkom iz $n = 8$, se zgodi,
+        da se pri dodajanju ene povezave ostale povezave ne spremenijo in se vrednost
+        \texttt{subpath\_number} sploh ne izboljša. Sklepava, da je težava v premajhnem
+        številu korakov, da bi metoda našla boljši rezultat, torej da sva obstala v
+        nekem lokalnem minimumu.
+
+        \item Sedaj bova za $n = 9$ uporabila še metodo za manjše grafe: za vsak par
+        $(n, \mu)$ poiščeva vse možne povezane grafe, za vsakega izračunava najmanjši
+        \texttt{subpath\_number} in nato shraniva tistega z najmanjšo vrednostjo
+        (če bodo rezultati še izvedljivi v razumnem času). \\
+        v 80 minutah je funkcija, ki generira vse grafe dokončala izračune za vse grafe do vključno
+        n = 9
+
+        ogotovitev: srednje vrednosti se precej razlikujejo, ampakk ne ostalo je pa obiskuje
+
+        \item  sedaj poganjava kodo še za max, tako da vpisuje v isti csv kot sva že imela rezulatate za min
+        to delava v PRAVILNO2, trajalo je 37 min
+
+        \item Pognala sva kodo \texttt{vecji\_grafi} za $n = 8$, da bova rezultate primerjala
+        z različico \texttt{\_live}. Izvajala sva jo za minimum in maksimum ter za različno
+        število ponovitev (300 in 4000). Prav tako sva v kodo dodala možnost nastavljanja
+        $N$ za poljuben $n$, tako da program sam izračuna $\mu_{\text{max, prev}}$ in
+        $\mu_{\text{max, n}}$. \\
+        za max je trajalo 8 minut pri 4000 \\
+        za max T=30 N= 300--- 3,5min \\
+        za min T= 6 N= 2000 --- 
+
+        \item Sedaj bova poskusila kodo pospešiti tako, da jo zaženeva za več vrednosti
+        $\mu$ hkrati (da bolje izkoristiva 100\% CPU-ja) ter obenem povečava število
+        korakov, tako da bo čas izvajanja ostal približno enak.
+
+    \end{itemize}
+
+        \section*{Problemi}
+
+    \begin{itemize}
+        \item ali koda ki ne zapisuje pravilno dela bolje ot tista v pravilno?
+         ali je bilo takrat samo naključje
+    \end{itemize}
+
+    \section*{to do-- če bo čas}     
+        \begin{itemize}
+        \item poženi za n= 9 še za 2000
+        \item prveri dodatne lastnosti v grafih
+    \end{itemize}
+
+
+    \section*{game plan}     
+
+\begin{itemize}
+    \item Za $n = 9$ uporabiva rezultate iz \texttt{ne\_live\_8}.
+    \item Napiši funkcijo, ki izračuna minimum in maksimum hkrati za poljuben $n$.
+    \item Izboljšaj izkoriščenost CPU-ja v tej funkciji.
+    \item Zapiši funkcijo, ki bo rezultate naključnih grafov za $n = 8, 9, 10$ zapisovala v CSV.
+    \item Opraviva analizo podatkov.
+    \item Zapiši funkcijo, ki bo rezultate kaktusnih grafov za $n = 8, 9, 10$ zapisovala v CSV.
+    \item preverit je treba če so slučajno ptc grafi pri majhnih grafih
+\end{itemize}
+
+
+
+\end{document}
