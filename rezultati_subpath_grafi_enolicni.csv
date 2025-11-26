@@ -61,14 +61,14 @@ n,µ(G),min p_n(G),max p_n(G),slika_min,slika_max,graph6_min,graph6_max,m(G),sub
 8,19,32949.0,34058.0,slike_min/graf_min_n8_mu19.png,slike_max/graf_max_n8_mu19.png,GV~~~{,G]~~~{,,
 8,20,43061.0,43061.0,slike_min/graf_min_n8_mu20.png,slike_max/graf_max_n8_mu20.png,G^~~~{,G^~~~{,,
 8,21,54804.0,54804.0,slike_min/graf_min_n8_mu21.png,slike_max/graf_max_n8_mu21.png,G~~~~{,G~~~~{,,
-9,5,355.0,,slike_min/graf_min_n9_mu5.png,,Hc?nwCB,,13.0,206.0
+9,5,355.0,,slike_min/graf_min_n9_mu5.png,,HCO_f|@,,13.0,206.0
 9,2,102.0,,,,H?AAF{_,,10.0,79.0
 9,3,129.0,,,,H?`@F{O,,11.0,102.0
 9,0,,,,,H???F}?,,8.0,45.0
 9,1,,,,,H??CF|?,,9.0,60.0
-9,4,,,,,H?FFwCB,,12.0,146.0
-9,6,,,,,HmXBQH@,,14.0,295.0
-9,7,,,,,H?BwN{D,,15.0,423.0
+9,4,,,,,HiPIe@_,,12.0,129.0
+9,6,,,,,H{yCcI@,,14.0,295.0
+9,7,,,,,H?B~wKE,,15.0,423
 9,8,,,,,H?J~wKE,,16.0,634.0
 9,9,,,,,HOBwN|D,,17.0,949.0
 9,10,,,,,H_?V~{b,,18.0,1416.0
@@ -78,4 +78,4 @@ n,µ(G),min p_n(G),max p_n(G),slika_min,slika_max,graph6_min,graph6_max,m(G),sub
 9,14,,,,,HOB~~{F,,22.0,6055.0
 9,15,,,,,HTm|~|?,,23.0,10770.0
 9,16,,,,,HVe|~{P,,24.0,14748.0
-9,17,,,,,HVm|~{P,,25.0,19903
+9,17,,,,,HVm|~{P,,25.0,19903.0
