@@ -1,4 +1,11 @@
 n,µ(G),min p_n(G),max p_n(G),slika_min,slika_max,graph6_min,graph6_max
+3,1,9,9,slike_min/graf_min_mu1_n3.png,slike_max/graf_max_mu1_n3.png,Bw,Bw
+4,1,15,16,slike_min/graf_min_mu1_n4.png,slike_max/graf_max_mu1_n4.png,CV,C]
+5,1,22,25,slike_min/graf_min_mu1_n5.png,slike_max/graf_max_mu1_n5.png,DC{,DUW
+6,1,30,36,slike_min/graf_min_mu1_n6.png,slike_max/graf_max_mu1_n6.png,E?bw,EEh_
+7,1,39,49,slike_min/graf_min_mu1_n7.png,slike_max/graf_max_mu1_n7.png,F?AFw,FCp`_
+8,1,49,64,slike_min/graf_min_mu1_n8.png,slike_max/graf_max_mu1_n8.png,G??CF{,G?qa`_
+9,1,60,81,slike_min/graf_min_mu1_n9.png,slike_max/graf_max_mu1_n9.png,H???CB~,H?bB@_W
 4,2,23,23,slike_min/graf_min_mu2_n4.png,slike_max/graf_max_mu2_n4.png,C^,C^
 5,2,33,38,slike_min/graf_min_mu2_n5.png,slike_max/graf_max_mu2_n5.png,DQ{,DFw
 6,2,43,56,slike_min/graf_min_mu2_n6.png,slike_max/graf_max_mu2_n6.png,ECRw,ECxo
@@ -34,3 +41,4 @@ n,µ(G),min p_n(G),max p_n(G),slika_min,slika_max,graph6_min,graph6_max
 7,8,623,939,slike_min/graf_min_mu8_n7.png,slike_max/graf_max_mu8_n7.png,F?z~w,FFzvO
 8,8,653,1478,slike_min/graf_min_mu8_n8.png,slike_max/graf_max_mu8_n8.png,G?`F~{,G?zvf_
 9,8,634,2135,slike_min/graf_min_mu8_n9.png,slike_max/graf_max_mu8_n9.png,H??CF~~,H?o~Fbo
+
