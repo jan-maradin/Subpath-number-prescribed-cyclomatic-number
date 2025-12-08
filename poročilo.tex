@@ -20,28 +20,58 @@
 \begin{document}
 
     \begin{center}
+        \large \textit{Fakulteta za matematiko in fiziko}\\
+        \large \textit{Univerza v Ljubljani}\\[12pt]
         \Large\textbf{Število podpoti pri grafih z danim ciklomatskim številom}\\[4pt]
         \large \textit{Poročilo projektne naloge}\\
         \large \textit{Skupina 18: Maja Košmrlj, Jan Maradin}
     \end{center}
 
 
-    \section*{vprašanja za profesorja}
-        \begin{itemize}
-            \item ali lahko midva brez geodetskih podpoti, ker imava občutek da nama bo časa zmanjkalo
-            še posebej zaradi tega da vse tako dolgo traja
-            \item kakšno temperaturo morava uporabljati, sedaj imava delala predvsem 
-            \item ali je okej, da midva napiševa kodo, tako da ko jo ponovno poženeva posodobi podatke,
-            torej da večkrat ko poženeva kodo boljši rezultat najde, \\
-            ali je poanta, da najdeva midva način, kako z dobrimi približki prideva že od enem pogonu do 
-            dobrega približka
-            \item kakšno analizo morava narediti, ali lahko damo v R v tabelo ali v excel?
+\section*{Teoretično ozadje}
+    \begin{itemize}
+        \item \textbf{Graf:} Graf $G = (V, E)$ je sestavljen iz množice vozlišč $V$ in množice povezav $E$, kjer je vsaka povezava element oblike $\{u, v\}$ za $u, v \in V$.
+        
+        \item \textbf{Povezan graf:} Graf $G$ je povezan, če med vsakim parom vozlišč obstaja pot.
+        
+        \item \textbf{Pot:} Pot v grafu $G$ dolžine $\ell$ je zaporedje različnih vozlišč 
+        $(v_0, v_1, \ldots, v_\ell)$,
+        kjer za vsak $1 \le i \le \ell$ velja, da je $v_{i-1}v_i \in E$.
+        \item \textbf{Ciklomatsko število:}
+        Je število neodvisnih ciklov, ki jih graf vsebuje, oziroma nam pove koliko povezav bi morali odstraniti, da bi dobili gozd. Ter je definirano kot: 
+        \[
+            \mu(G) = |E| - |V| + 1
+        \]
+        \item \textbf{Podpot}
+        Naj bo $G = (V, E)$ povezan graf in $P = v_1 v_2 \dots v_k$ pot v grafu $G$. 
+        \emph{Podpot} grafa $G$ je vsaka zaporedna podzaporedje oglišč te poti, torej vsaka pot oblike
+        \[
+        v_i v_{i+1} \dots v_j, \quad \text{kjer } 1 \le i < j \le k.
+        \]
+        \item \textbf{Število podpoti:} Je skupno število vseh enostavnih poti v grafu, vključno s trivialnimi potmi in ga označimo s $p_n(G)$.
+        \item \textbf{Geodetsko število} Za $G = (V,E)$ povezan graf označimo geodetsko število podpoti z $gp_n(G)$ in
+        definiramo kot skupno število vseh geodetskih enostavnih poti v grafu.
+        Za vsaka dva vozlišča $u, v \in V(G)$ označimo z $d(u,v)$ razdaljo med njima,
+        z $\sigma^*(u,v)$ pa število vseh enostavnih $u$--$v$ poti dolžine $d(u,v)$.
+        Tedaj je
+        \[
+        gp_n(G) = \sum_{u,v \in V(G)} \sigma^*(u,v).
+        \]
+        Vračunane so tudi poti dolžine $0$, torej $u=v$.
+        Geodetsko število podpoti tako meri, koliko najkrajših enostavnih poti vsebuje graf.
 
-        \end{itemize}
+        \item \textbf{Kaktusni graf} je graf, v katerem se poljubna dva cikla stikata v največ enem vozlišču. 
+        To pomeni, da se cikli lahko dotikajo, vendar se ne prekrivajo.
 
+        \item \textbf{Graf PTC(n,k)} (angl.~\emph{Pseudo Triangle Chain}), oziroma psevdotrikotna veriga, 
+        je poseben primer kaktusnega grafa z \emph{n} vozliščci in $k$ cikli. Vsi cikli so trikotniki, povezani v verigo
+        in zato graf dosega največje možno število podpoti med vsemi takšnimi grafi.
+        
+        \item \textbf{Izrek} (Knor, 2025) 
+        Graf $PTC(n, k)$ enolično maksimizira število podpoti med vsemi kaktusnimi grafi z $n$ vozlišči in $k \ge 2$ cikli.
 
-
-    \section*{Najini podvigi}
+    \end{itemize}
+    \section*{Najini polomi}
 
     \begin{itemize}
         \item 
@@ -96,6 +126,8 @@
         \begin{itemize}
         \item poženi za n= 9 še za 2000
         \item prveri dodatne lastnosti v grafih
+        \item naredi analizo 1. dela --> ali lahko damo v R v tabelo ali v excel?
+
     \end{itemize}
 
 
@@ -117,14 +149,39 @@
     in geodetskim številom, ter nato iskala kaj te grafe povezuje po izgledu. Ugotavljala sva torej kako izgledajo grafi ter kako se postopoma spremninjajo 
     z večanjem štrevila vozlišč.
 
-    Projketne naloge sva se vbistvu lotila na dva različna načina, sicer se prepletata, vendar sva se pri
+    Projetne naloge sva se vbistvu lotila na dva različna načina, sicer se prepletata, vendar sva se pri
     prvem načinu osredotočala kako bi poiskala način da s pomočjo SA dobiva čim boljši približek za graf z manjmanjšim številom podpoti.
     v 2. delu naloge pa sva se osredotočila na grafe z manjšim ciklomatskim številom in nato bolj gledala oblike grafov.
 
-\section*{1. del projektne naloge}     
-    \begin{itemize}
-    \item poženi za n= 9 še za 2000
-    \item prveri dodatne lastnosti v grafih
+
+
+\section*{1. del projektne naloge}
+
+V tem delu projektne naloge sva za določeno število vozlišč in za vsa mogoča ciklomatska števila pri teh vozliščih 
+poiskala grafe z najmanjšim subpath numberjem. 
+
+Ker sva iskala grafe za vsa mogoča ciklomatska števila, je bilo iskanje zelo dolgotrajno, zato sva to izvedla le za grafe 
+z največ 10 vozlišči. 
+
+V tem delu se nisva ukvarjala z geodetskimi podpotmi.
+
+
+\subsection*{Postopek dela}
+\begin{itemize}
+    \item Prva stvar, ki sva se je lotila, je bila pravilna definicija funkcije, ki v podanem grafu poišče vse podpoti.
+    
+    \item To funkcijo sva nadgradila tako, da za določeno ciklomatsko število in število vozlišč (iz teh dveh vrednosti posledično dobimo tudi točno določeno število povezav) izbere tisti graf, ki ima najmanjše oziroma največje število podpoti.
+    
+    \item Nato sva to funkcijo pognala na vseh grafih z največ 9 vozlišči in vsemi možnimi ciklomatskimi števili (to število je seveda navzgor omejeno s polnostjo grafa; npr. pri $|V| = 9$ je maksimalni $\mu = 28$).  
+    Rezultate te funkcije, ki so zapisani v datoteki \texttt{glavno.ipynb}, sva shranjevala v datoteko \texttt{rezultati\_subpath\_live.csv}.  
+    V datoteki CSV so stolpci s številom vozlišč, vrednostjo $\mu$, najmanjšim $pn(G)$ ter imenom grafa, ki to vrednost doseže, ter največjim $pn(G)$ in imenom grafa, ki doseže to vrednost.
+    Pogon celotne kode je trajal 80 minut
 \end{itemize}
+
+
+
+
+
+
 
 \end{document}
