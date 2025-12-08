@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1764170586.88348 "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo.tex" "poročilo.pdf" "poročilo" 1764170587.47076 0
+["pdflatex"] 1765191421.48797 "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo.tex" "poročilo.pdf" "poročilo" 1765191422.80016 0
   "/etc/texmf/web2c/texmf.cnf" 1762684837.38928 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo.tex" 1764170586.64582 4919 d89d3d5bb292448eda6bcae72767cc87 ""
+  "/home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo.tex" 1765191421.01009 5800 10f5fa126fc77e527cfcafdfaeb93d5b ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm" 1136768653 3584 ad49a18d8515beef6d92d4d3f197d0fd ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm" 1136768653 3584 291a5713401683441e0a8c8f4417b17b ""
@@ -74,8 +74,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1762684886.23351 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1762685012 8215523 afff7a7d1445fa8dea5a7fcb150bcc23 ""
-  "poročilo.aux" 1764170587.39046 132 b50e58fdf3b90d65156b8a1ced4e60d0 "pdflatex"
-  "poročilo.tex" 1764170586.64582 4919 d89d3d5bb292448eda6bcae72767cc87 ""
+  "poročilo.aux" 1765191422.63809 132 0bd9b7a790c928e907979f052e1525bc "pdflatex"
+  "poročilo.tex" 1765191421.01009 5800 10f5fa126fc77e527cfcafdfaeb93d5b ""
   (generated)
   "poročilo.aux"
   "poročilo.log"
