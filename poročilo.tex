@@ -115,18 +115,14 @@
 
     \end{itemize}
 
-        \section*{Problemi}
-
-    \begin{itemize}
-        \item ali koda ki ne zapisuje pravilno dela bolje ot tista v pravilno?
-         ali je bilo takrat samo naključje
-    \end{itemize}
 
     \section*{to do-- če bo čas}     
         \begin{itemize}
         \item poženi za n= 9 še za 2000
         \item prveri dodatne lastnosti v grafih
         \item naredi analizo 1. dela --> ali lahko damo v R v tabelo ali v excel?
+        \item SA 1. dela za n = 10
+        \item dodaj 2. del za mu = 9 in mu = 10
 
     \end{itemize}
 
@@ -153,7 +149,28 @@
     prvem načinu osredotočala kako bi poiskala način da s pomočjo SA dobiva čim boljši približek za graf z manjmanjšim številom podpoti.
     v 2. delu naloge pa sva se osredotočila na grafe z manjšim ciklomatskim številom in nato bolj gledala oblike grafov.
 
-
+    Za velike grafe sva tako v 1. delu kot v 2. delu uporabljala Simulated aneling.
+    Simulated annealing (simulirano ohlajanje) je optimizacijski algoritem, ki se uporablja za iskanje približno najboljših 
+    rešitev na grafih, zlasti kadar je iskalni prostor zelo velik in kompleksen. Metoda posnema proces fizičnega ohlajanja kovin: 
+    na začetku dovoljuje tudi „slabše“ premike, da lahko pobegne iz lokalnih ekstremov, nato pa postopno zmanjšuje verjetnost takšnih 
+    premikov, ko se temperatura znižuje.Prednost metode je, da lahko najde dobre rešitve tam, kjer bi druge metode hitro 
+    obtičale, saj s svojo naključnostjo bolj učinkovito raziskuje celoten prostor možnih rešitev.
+    Pri vsakem koraku algoritem iz trenutne rešitve $x$ generira novo kandidatno rešitev $x'$. 
+    Če je nova rešitev boljša, jo sprejmemo. V nasprotnem primeru jo sprejmemo z verjetnostjo
+    \[
+    P = e^{-\frac{\delta}{T}},
+    \]
+    kjer je 
+    \[
+    \delta = \lvert f(x') - f(x) \rvert
+    \]
+    razlika med novo vrednostjo ciljne funkcije in trenutno najboljšo vrednostjo. Parameter $T$ predstavlja temperaturo, 
+    ki se skozi iteracije postopoma zmanjšuje. Temperatura se ohlaja po pravilu
+    \[
+    T_{k+1} = \alpha T_k,
+    \]
+    pri čemer sva v tej projektni nalogi izbrala $\alpha = 0.995$. 
+    Začetno temperaturo sva po potrebi prilagajala.
 
 \section*{1. del projektne naloge}
 
@@ -161,23 +178,31 @@ V tem delu projektne naloge sva za določeno število vozlišč in za vsa mogoč
 poiskala grafe z najmanjšim subpath numberjem. 
 
 Ker sva iskala grafe za vsa mogoča ciklomatska števila, je bilo iskanje zelo dolgotrajno, zato sva to izvedla le za grafe 
-z največ 10 vozlišči. 
+z največ 10 vozlišči. Prave grafe z najmanjsim število podpoti sva za male grafe poiskala v datoteki glavno.ipynb (do grafov z velikostjo 9)
+ Nato pa sva z najinimi dobrimi približki in pomočjo SA poiskala še dobre približke za grafe velikosti |v| = 8..10.
 
 V tem delu se nisva ukvarjala z geodetskimi podpotmi.
 
 
 \subsection*{Postopek dela}
+\textbf{Mali grafi}
 \begin{itemize}
     \item Prva stvar, ki sva se je lotila, je bila pravilna definicija funkcije, ki v podanem grafu poišče vse podpoti.
     
-    \item To funkcijo sva nadgradila tako, da za določeno ciklomatsko število in število vozlišč (iz teh dveh vrednosti posledično dobimo tudi točno določeno število povezav) izbere tisti graf, ki ima najmanjše oziroma največje število podpoti.
+    \item To funkcijo sva nadgradila tako, da za dano ciklomatsko število in število vozlišč najprej generira vse možne grafe za ta par, nato pa izbere tistega z najmanjšim oziroma največjim številom podpoti. Vsi dobljeni podatki se avtomatsko zapišejo v datoteko CSV.
     
-    \item Nato sva to funkcijo pognala na vseh grafih z največ 9 vozlišči in vsemi možnimi ciklomatskimi števili (to število je seveda navzgor omejeno s polnostjo grafa; npr. pri $|V| = 9$ je maksimalni $\mu = 28$).  
-    Rezultate te funkcije, ki so zapisani v datoteki \texttt{glavno.ipynb}, sva shranjevala v datoteko \texttt{rezultati\_subpath\_live.csv}.  
-    V datoteki CSV so stolpci s številom vozlišč, vrednostjo $\mu$, najmanjšim $pn(G)$ ter imenom grafa, ki to vrednost doseže, ter največjim $pn(G)$ in imenom grafa, ki doseže to vrednost.
-    Pogon celotne kode je trajal 80 minut
+    \item Nato sva to funkcijo pognala na vseh grafih z največ 9 vozlišči in vsemi možnimi ciklomatskimi števili (to število je navzgor omejeno s polnostjo grafa; na primer pri $|V| = 9$ je maksimalni $\mu = 28$). Rezultate, ki so zapisani v datoteki \texttt{glavno.ipynb}, sva shranjevala v datoteko \texttt{rezultati\_subpath\_live.csv}. V datoteki CSV so shranjeni stolpci s številom vozlišč, vrednostjo $\mu$, najmanjšim $pn(G)$ in imenom grafa, ki to vrednost doseže, ter največjim $pn(G)$ in imenom grafa, ki doseže to vrednost. Celoten pogon kode je trajal približno 80 minut.
+    
+    \item S to funkcijo sva tako za vse možne pare $(\mu, |V|)$ (do $|V| = 9$) poiskala grafe z najmanjšim in največjim številom podpoti.
 \end{itemize}
 
+
+
+\textbf{Veliki grafi}
+\begin{itemize}
+    \item Za velike grafe pa sva iskala grafe z najmajšim in največjim številom podpoti s pomčjo SA. Torej ni nujno da sva našla najboljše vrednosti, ampak dobre približke.
+    \item V prvem delu projektne sva se osredotočila na to da poiiščeva dobre začetne približke, ki jih bova dala v SA, da 
+\end{itemize}
 
 
 
