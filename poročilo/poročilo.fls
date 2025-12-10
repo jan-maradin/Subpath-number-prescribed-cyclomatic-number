@@ -1,9 +1,9 @@
-PWD /home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number
+PWD /home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo.tex
+INPUT /home/majak/projektna_naloga/Subpath-number-prescribed-cyclomatic-number/poročilo/poročilo.tex
 OUTPUT poročilo.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls

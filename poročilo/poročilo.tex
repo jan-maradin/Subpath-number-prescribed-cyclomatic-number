@@ -74,10 +74,6 @@
     \section*{Najini polomi}
 
     \begin{itemize}
-        \item 
-        \item  ko sva probala za n = 9 in N = 4000 izvesti po Janovi metodi smo porabili
-        do mu= 18  je rabil 20 minut kar je očitno čisto preveč počasi, saj bi s tem
-        tempom delal za vse mu pri n = 9 rabil po vsej verjetnosti več ur
         \item Zagnala sva iskanje minimuma za $n = 9$ po Janovi metodi z nastavitvami
         \texttt{max\_steps = 300}, \texttt{T\_start = 3}, \texttt{T\_end = 0.001},
         \texttt{cooling = 0.99}. Računanje je trajalo približno 32 minut.\\
@@ -88,17 +84,6 @@
         številu korakov, da bi metoda našla boljši rezultat, torej da sva obstala v
         nekem lokalnem minimumu.
 
-        \item Sedaj bova za $n = 9$ uporabila še metodo za manjše grafe: za vsak par
-        $(n, \mu)$ poiščeva vse možne povezane grafe, za vsakega izračunava najmanjši
-        \texttt{subpath\_number} in nato shraniva tistega z najmanjšo vrednostjo
-        (če bodo rezultati še izvedljivi v razumnem času). \\
-        v 80 minutah je funkcija, ki generira vse grafe dokončala izračune za vse grafe do vključno
-        n = 9
-
-        ogotovitev: srednje vrednosti se precej razlikujejo, ampakk ne ostalo je pa obiskuje
-
-        \item  sedaj poganjava kodo še za max, tako da vpisuje v isti csv kot sva že imela rezulatate za min
-        to delava v PRAVILNO2, trajalo je 37 min
 
         \item Pognala sva kodo \texttt{vecji\_grafi} za $n = 8$, da bova rezultate primerjala
         z različico \texttt{\_live}. Izvajala sva jo za minimum in maksimum ter za različno
@@ -109,35 +94,18 @@
         za max T=30 N= 300--- 3,5min \\
         za min T= 6 N= 2000 --- 
 
-        \item Sedaj bova poskusila kodo pospešiti tako, da jo zaženeva za več vrednosti
-        $\mu$ hkrati (da bolje izkoristiva 100\% CPU-ja) ter obenem povečava število
-        korakov, tako da bo čas izvajanja ostal približno enak.
-
     \end{itemize}
 
 
     \section*{to do-- če bo čas}     
         \begin{itemize}
-        \item poženi za n= 9 še za 2000
         \item prveri dodatne lastnosti v grafih
         \item naredi analizo 1. dela --> ali lahko damo v R v tabelo ali v excel?
         \item SA 1. dela za n = 10
         \item dodaj 2. del za mu = 9 in mu = 10
+        \item poskusi v SA dodati samo random graf
 
     \end{itemize}
-
-
-    \section*{game plan}     
-
-\begin{itemize}
-    \item Za $n = 9$ uporabiva rezultate iz \texttt{ne\_live\_8}.
-    \item Napiši funkcijo, ki izračuna minimum in maksimum hkrati za poljuben $n$.
-    \item Izboljšaj izkoriščenost CPU-ja v tej funkciji.
-    \item Zapiši funkcijo, ki bo rezultate naključnih grafov za $n = 8, 9, 10$ zapisovala v CSV.
-    \item Opraviva analizo podatkov.
-    \item Zapiši funkcijo, ki bo rezultate kaktusnih grafov za $n = 8, 9, 10$ zapisovala v CSV.
-    \item preverit je treba če so slučajno ptc grafi pri majhnih grafih
-\end{itemize}
 
 
 \section*{uvod}
@@ -178,7 +146,7 @@ V tem delu projektne naloge sva za določeno število vozlišč in za vsa mogoč
 poiskala grafe z najmanjšim subpath numberjem. 
 
 Ker sva iskala grafe za vsa mogoča ciklomatska števila, je bilo iskanje zelo dolgotrajno, zato sva to izvedla le za grafe 
-z največ 10 vozlišči. Prave grafe z najmanjsim število podpoti sva za male grafe poiskala v datoteki glavno.ipynb (do grafov z velikostjo 9)
+z največ 10 vozlišči. Prave grafe z najmanjsim število podpoti sva za male grafe poiskala v datoteki 1del_mali_grafi.ipynb (do grafov z velikostjo 9)
  Nato pa sva z najinimi dobrimi približki in pomočjo SA poiskala še dobre približke za grafe velikosti |v| = 8..10.
 
 V tem delu se nisva ukvarjala z geodetskimi podpotmi.
@@ -201,10 +169,70 @@ V tem delu se nisva ukvarjala z geodetskimi podpotmi.
 \textbf{Veliki grafi}
 \begin{itemize}
     \item Za velike grafe pa sva iskala grafe z najmajšim in največjim številom podpoti s pomčjo SA. Torej ni nujno da sva našla najboljše vrednosti, ampak dobre približke.
-    \item V prvem delu projektne sva se osredotočila na to da poiiščeva dobre začetne približke, ki jih bova dala v SA, da 
+    \item Osredotočila sva se, da sva poiskala način uporabe SA in začetnih približkov, ki nama poišče razmerje med dovolj dobrimi približki in hitrostjo kode.
+    \item Najprej sva želela z rekurzijo nareidti SA na grafih z n = 9 in vemi možnimi mu-ji.
+    \item Rekurzija, ki sva jo uporabila vzame graf iz točnih vrednosti, ki sva jih izračunala z majhne grafe. vzela sva grafe z 8 vozlič in istim mu, ter dodala eno povezavo od dodanega vozlišča na poljubno vozlišče
+    da sva ohranila povezan graf. ko pa je mu prevelik (saj je max mu pri n=8 enak 21) SA vzame približek ki ga je izračunal prej in doda eno povezavo tako da se mu za 1 poveča.
+    \item \textbf{NAPIŠI UGOTOVITVE ZA N = 9}
+    \item Nato sva izvajala SA za grafe z n = 8. Tu pa sva pregledovala tudi kako spreminjanje temperature in števila korakov vliva na rezultate in čas trajanja.
+    \item Primerjala vsa kaj je razlika ko je začetna temperatura 30 ali 3. potem pa sva še pogledala kaj se spremeni če je število korakov 100, 2000 ali 4000
+    \item \textbf{ugotoviitve za n = 8}
 \end{itemize}
 
 
+\section*{2.~del projektne naloge}
+
+V drugem delu projektne naloge sva se osredotočila na opazovanje oblik grafov. Fiksirala sva ciklomatsko število do $\mu = 8$ in izvajala kodo 
+na majhnih grafih do $n = 10$, nato pa še simulirano ohlajanje (SA) na grafih z $n = 11$ do $n = 30$. 
+Nato sva uporabila podani izrek Knorra in preverila, ali drži. 
+Za konec sva tako za majhne grafe kot tudi za velike grafe z metodo SA izvedla analizo oblik tudi za grafe z najmanjšim oziroma največjim številom geodetskih podpoti.
+
+Vsa koda za drugi del je zapisana v mapi \texttt{2\_del}. 
+Za geodetske podpoti pa je znotraj te mape mapa \texttt{Geodesic\_subpath\_number}, kjer so zapisane vse datoteke, povezane 
+z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
+
+\subsection*{Najmanjše/največje število podpoti}
+
+\textbf{Mali grafi}
+\begin{itemize}
+    \item Tako kot v prvem delu sva najprej napisala kodo za majhne grafe in zanje poiskala točne rešitve. 
+        Za ciklomatska števila od $\mu = 1$ do $\mu = 8$ sva za grafe z največ $10$ vozlišči generirala vse grafe ter izmed njih izbrala tiste 
+        z najmanjšim oziroma največjim številom podpoti.\\
+        Koda je zapisana v datoteki \texttt{2del\_subpath\_mali\_grafi.ipynb}, rezultati pa v \texttt{2del\_subpath\_mali\_grafi.csv}.\\
+        Za lažjo analizo oblik grafov sva si vse slike v drugem delu shranjevala v mapi \texttt{slike\_max} in \texttt{slike\_min}, 
+        kjer ime slike vsebuje par $(\mu, n)$, na katerega se nanaša.
+    \item V tej kodi sva prav tako z uporabo večih jedel povečala uporabo CPU-ja računalika, tako da je celotna koda tekla samo 3 minute
+    \item \textbf{Ugotovitev:} 
+\end{itemize}
+
+
+\textbf{Veliki grafi}
+\begin{itemize}
+    \item Tudi v drugem delu sva za »večje grafe« uporabila metodo simulated annealing (SA). 
+    Za vsa $\mu$ od $1$ do $8$ sva izvedla SA za grafe z $n = 10$ do $n = 30$.
+    
+    \item Začetne približke sva izbrala podobno kot v prvem delu: vzela sva graf z enakim ciklomatskim številom, 
+    vendar z enim vozliščem manj, nato pa sva v ta graf dodala še eno vozlišče in eno povezavo, tako da je graf ostal povezan.
+    
+    \item Povezavo sva dodajala na dva različna načina. Najprej sva jo v graf dodala naključno, nato pa sva jo dodala 
+    v tisto vozlišče, ki ima največjo stopnjo.
+    
+    \item Koda za oba načina je zapisana v datoteki \texttt{2del\_subpath\_SA.ipynb}. 
+    Rezultati za naključno dodajanje povezave so zapisani v \texttt{2del\_subpath\_SA.csv}, 
+    za dodajanje v vozlišče z največjo stopnjo pa v \texttt{2del\_subpath\_SA\_v\_sredisce.csv}.
+    
+    \item \textbf{Ugotovitve za oba načina dodajanja povezave:}\\
+    Za minimum oba pristopa vrneta enako vrednost najmanjšega števila podpoti, razlikujeta pa se obliki grafov. 
+    To je smiselno, saj je število podpoti enako ne glede na to, ali so vsa vozlišča pripeta na eno »sredinsko« vozlišče 
+    ali pa so razporejena v verigo; tudi število ciklov ostane enako v obeh primerih. 
+    Na primer, pri $\mu = 3$ ima graf z minimalnim številom podpoti tri trikotne cikle, preostala vozlišča pa so razporejena v verigo.\\
+    Tudi za maksimum sta pristopa primerljiva: v nekaterih primerih ena metoda vrne nekoliko večje število podpoti, v drugih pa druga. 
+    Večjo vrednost navadno vrne pristop, ki najde graf, kjer so nova vozlišča vključena v cikel in ne kot listi, pripeti na eno vozlišče. 
+    To obnašanje je posledica stohastične narave metode SA in ga ne moreva povsem odpraviti.
+    
+    \item \textbf{problem: apparently nimava vseh slik:} v mapo so shranjene slike, ki jih generira druga funkcija za $\mu \le 4$, 
+    za $\mu = 5,6,7,8$ pa so shranjene slike, ki so nastale z uporabo prve funkcije.
+\end{itemize}
 
 
 
