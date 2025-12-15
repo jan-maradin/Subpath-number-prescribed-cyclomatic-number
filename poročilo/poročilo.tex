@@ -145,13 +145,13 @@ za majhne grafe in algoritem SA izvajala na isti množici grafov.
 \textbf{1.del z SA}
 \begin{itemize}
     \item Vbistvu naju je zanimalo kako dobro deluje SA, če spremeniva določene parametre. Rezultate pa sva primerjala z točnimi 
-        vrednostmi, ki sva jih izračunala v prejšnjem delu
+        vrednostmi, ki sva jih izračunala v prejšnjem delu.
     \item Najprej sva želela z rekurzijo nareidti SA na grafih z n = 9 in vemi možnimi mu-ji z nastavitvami \texttt{max\_steps = 300}, \texttt{T\_start = 3}, \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}.
-    \item Rekurzija, ki sva jo uporabila vzame graf iz točnih vrednosti, ki sva jih izračunala z majhne grafe. vzela sva grafe z 8 vozlič in istim mu, ter dodala eno povezavo od dodanega vozlišča na poljubno vozlišče
+    \item Rekurzija, ki sva jo uporabila vzame graf iz točnih vrednosti, ki sva jih izračunala za majhne grafe. Vzela sva grafe z 8 vozlič in istim mu, ter dodala eno povezavo od dodanega vozlišča na poljubno vozlišče
     da sva ohranila povezan graf. ko pa je mu prevelik (saj je max mu pri n=8 enak 21) SA vzame približek ki ga je izračunal prej in doda eno povezavo tako da se mu za 1 poveča.
     \item \textbf{NAPIŠI UGOTOVITVE ZA N = 9}
     \item Nato sva izvajala SA za grafe z n = 8. Tu pa sva pregledovala tudi kako spreminjanje temperature in števila korakov vliva na rezultate in čas trajanja.
-    \item Primerjala vsa kaj je razlika ko je začetna temperatura 30 ali 3. potem pa sva še pogledala kaj se spremeni če je število korakov 100, 2000 ali 4000
+    \item Primerjala sva kaj je razlika ko je začetna temperatura 30 ali 3. potem pa sva še pogledala kaj se spremeni če je število korakov 100, 2000 ali 4000
     \item  \textbf{komentar iz najinih polomov:} Pognala sva kodo \texttt{vecji\_grafi} za $n = 8$, da bova rezultate primerjala
         z različico \texttt{\_live}. Izvajala sva jo za minimum in maksimum ter za različno
         število ponovitev (300 in 4000). Prav tako sva v kodo dodala možnost nastavljanja
@@ -182,11 +182,19 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     \item Tako kot v prvem delu sva najprej napisala kodo za majhne grafe in zanje poiskala točne rešitve. 
         Za ciklomatska števila od $\mu = 1$ do $\mu = 8$ sva za grafe z največ $10$ vozlišči generirala vse grafe ter izmed njih izbrala tiste 
         z najmanjšim oziroma največjim številom podpoti.\\
-        Koda je zapisana v datoteki \texttt{2del\_subpath\_mali\_grafi.ipynb}, rezultati pa v \texttt{2del\_subpath\_mali\_grafi.csv}.\\
+        Koda je zapisana v datoteki \texttt{2del\_subpath\_mali\_grafi.ipynb}, rezultati pa v \\
+        \texttt{2del\_subpath\_mali\_grafi.csv}.\\
         Za lažjo analizo oblik grafov sva si vse slike v drugem delu shranjevala v mapi \texttt{slike\_max} in \texttt{slike\_min}, 
         kjer ime slike vsebuje par $(\mu, n)$, na katerega se nanaša.
-    \item V tej kodi sva prav tako z uporabo večih jedel povečala uporabo CPU-ja računalika, tako da je celotna koda tekla samo 3 minute
-    \item \textbf{Ugotovitev:} 
+    \item Da se je koda iztekla hitreje, sva jo prilagodila za uporabo večih jeder.
+    \item \textbf{Ugotovitev:} \\
+        Pri grafih z majhnim \v{s}tevilom vozli\v{s}\v{c} in majhnim ciklomatskim \v{s}tevilom sva ugotovila, da so se pri minimiziranju \v{s}tevila podpoti grafi nagibali k strukturi,
+        sestavljeni iz ciklov dol\v{z}ine $3$, ki so imeli skupno eno vozli\v{s}\v{c}e, kar se je pojavilo v primerih, ko je bilo glede na dano ciklomatsko \v{s}tevilo na voljo dovolj vozli\v{s}\v{c}. 
+        Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
+        Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsakemu vozli\v{s}\v{c}u prirejeno vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
+        Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala. To nakazuje, da se maksimalna stopnja grafa pribli\v{z}uje vrednosti $3$, minimalna stopnja pa vrednosti $2$.
+
+
 \end{itemize}
 
 
@@ -246,7 +254,12 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     \item koda je zapisana v datoteki \texttt{2del\_geodesic\_SA.ipynb.ipynb}. Rezultati so zapisani v \texttt{2del\_geodesic\_SA.csv}
     Slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_max}
     \item za geodetske podpoti sva začetnim približkom povezala samo randomly in ne v vozlišče z največjo stopnjo.
-    \item \textbf{ugotovitve}
+    \item \textbf{ugotovitve} \\
+    Pri minimiziranju geodetskega \v{s}tevila poti v grafih se je pri $\mu \geq 3$ za\v{c}elo pojavljati, da grafi niso ve\v{c} vsebovali zgolj ciklov dol\v{z}ine $3$, 
+    temve\v{c} so za\v{c}eli tvoriti strukture, ki jih lahko opi\v{s}emo kot nekak\v{s}ne piramide v prostoru. Pri $\mu = 3$ ima graf eno tristrano piramido in eno centralno vozli\v{s}\v{c}e. 
+    Pri $\mu = 4$ se na to centralno vozli\v{s}\v{c}e doda \v{s}e en cikel dol\v{z}ine $3$, pri $\mu = 5$ pa \v{s}e en tak cikel, dokler se pri $\mu = 6$ ne ustvari ena \v{s}tiristrana piramida. 
+    Pri nadaljnjem pove\v{c}evanju ciklomatskega \v{s}tevila se vzorec nadaljuje podobno: najprej nastajajo novi cikli dol\v{z}ine $3$, dokler se ponovno ne oblikuje nova piramidna struktura.
+    Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega \v{s}tevila oblikujejo grafi, v katerih so cikli povezani zaporedno in skupaj tvorijo verigo.
 
 \end{itemize}
 
