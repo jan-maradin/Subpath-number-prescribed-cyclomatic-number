@@ -86,7 +86,7 @@ V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim števil
     Za velike grafe sva tako v 1. delu kot v 2. delu uporabljala Simulated annealing. To je optimizacijski algoritem, ki se uporablja za iskanje približno najboljših 
     rešitev na grafih, zlasti kadar je iskalni prostor zelo velik in kompleksen. Metoda posnema proces fizičnega ohlajanja kovin: 
     na začetku dovoljuje tudi „slabše“ premike, da lahko pobegne iz lokalnih ekstremov, nato pa postopno zmanjšuje verjetnost takšnih 
-    premikov, ko se temperatura znižuje.Prednost metode je, da lahko najde dobre rešitve tam, kjer bi druge metode hitro 
+    premikov, ko se temperatura znižuje. Prednost metode je, da lahko najde dobre rešitve tam, kjer bi druge metode hitro 
     obtičale, saj s svojo naključnostjo bolj učinkovito raziskuje celoten prostor možnih rešitev.
     Pri vsakem koraku algoritem iz trenutne rešitve $x$ generira novo kandidatno rešitev $x'$. 
     Če je nova rešitev boljša, jo sprejmemo. V nasprotnem primeru jo sprejmemo z verjetnostjo
@@ -108,11 +108,8 @@ V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim števil
 
     \section*{to do-- če bo čas}     
         \begin{itemize}
-        \item prveri dodatne lastnosti v grafih
-        \item naredi analizo 1. dela --> ali lahko damo v R v tabelo ali v excel?
-        \item SA 1. dela za n = 10
-        \item dodaj 2. del za mu = 9 in mu = 10
-        \item poskusi v SA dodati samo random graf
+        \item prveri dodatne lastnosti v grafih -zapiši funcijo ki pregleduje tudi ostale lastnosti v 2.delu, npr.dvodelnost ali kaj takega
+        \item še iz random v 2.delu?
 
     \end{itemize}
 
@@ -121,35 +118,34 @@ V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim števil
 
 \section*{1.~del projektne naloge}
 
-V tem delu projektne naloge sva za določeno število vozlišč in za vsa mogoča ciklomatska števila pri teh vozliščih 
-poiskala grafe z najmanjšim \emph{subpath numberjem}.
+V tem delu projektne naloge sva za dano število vozlišč in za vsa pripadajoča ciklomatska števila 
+poiskala grafe z najmanjšim številom podpoti. V tem delu se torej nisva osredotočala na geodetske podpoti.
 
-Ker sva iskala grafe za vsa mogoča ciklomatska števila, je bilo iskanje zelo dolgotrajno, zato sva ga izvedla le za grafe 
-z največ 10 vozlišči. Točne grafe z najmanjšim številom podpoti sva za majhne grafe (do velikosti 9) poiskala v datoteki 
-\texttt{1del\_mali\_grafi.ipynb}.  
-Nato pa sva z najinimi približki in uporabo metode SA poiskala dobre približke še za grafe velikosti $|V| = 8 \ldots 10$.
-
-V tem delu se nisva ukvarjala z geodetskimi podpotmi.
+Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek iskanja zelo časovno zahteven, 
+zato sva se pri eksperimentalnem delu omejila na grafe z največ 9 vozlišči. V prvem delu projektne naloge 
+sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši, zato sva natančno iskanje 
+za majhne grafe in algoritem SA izvajala na isti množici grafov.
 
 
-\subsection*{Postopek dela}
-\textbf{Mali grafi}
+
+\textbf{Iskanje točnih vrenosti}
 \begin{itemize}
-    \item Prva stvar, ki sva se je lotila, je bila pravilna definicija funkcije, ki v podanem grafu poišče vse podpoti.
-    
-    \item To funkcijo sva nadgradila tako, da za dano ciklomatsko število in število vozlišč najprej generira vse možne grafe za ta par, nato pa izbere tistega z najmanjšim oziroma največjim številom podpoti. Vsi dobljeni podatki se avtomatsko zapišejo v datoteko CSV.
-    
-    \item Nato sva to funkcijo pognala na vseh grafih z največ 9 vozlišči in vsemi možnimi ciklomatskimi števili (to število je navzgor omejeno s polnostjo grafa; na primer pri $|V| = 9$ je maksimalni $\mu = 28$). Rezultate, ki so zapisani v datoteki \texttt{glavno.ipynb}, sva shranjevala v datoteko \texttt{rezultati\_subpath\_live.csv}. V datoteki CSV so shranjeni stolpci s številom vozlišč, vrednostjo $\mu$, najmanjšim $pn(G)$ in imenom grafa, ki to vrednost doseže, ter največjim $pn(G)$ in imenom grafa, ki doseže to vrednost. Celoten pogon kode je trajal približno 80 minut.
-    
-    \item S to funkcijo sva tako za vse možne pare $(\mu, |V|)$ (do $|V| = 9$) poiskala grafe z najmanjšim in največjim številom podpoti.
+    \item Koda za ta del je zapisana v datoteki \texttt{1del\_mali\_grafi.ipynb}, rezultati pa so v \texttt{1del\_mali.csv}
+    \item Najprej sva definirala funkcijo, ki v podanem grafu poišče vse podpoti. To funkcijo sva nadgradila tako, 
+    da za dano ciklomatsko število in število vozlišč najprej generira vse možne grafe za ta par, nato pa izbere in shrani 
+    tistega z najmanjšim oziroma največjim številom podpoti. To funcijo sva nato pognala na vseh grafih z največ 9 vozlišči 
+    in vsemi možnimi ciklomatskimi števili (to število je navzgor omejeno s polnostjo grafa; na primer pri $|V| = 9$ je maksimalni $\mu = 28$).
+    Rezultate pa sva shranjevala v datoteko CSV. 
+    \item Celoten pogon kode je trajal približno 80 minut.
+
 \end{itemize}
 
 
 
-\textbf{Veliki grafi}
+\textbf{1.del z SA}
 \begin{itemize}
-    \item Za velike grafe pa sva iskala grafe z najmajšim in največjim številom podpoti s pomčjo SA. Torej ni nujno da sva našla najboljše vrednosti, ampak dobre približke.
-    \item Osredotočila sva se, da sva poiskala način uporabe SA in začetnih približkov, ki nama poišče razmerje med dovolj dobrimi približki in hitrostjo kode.
+    \item Vbistvu naju je zanimalo kako dobro deluje SA, če spremeniva določene parametre. Rezultate pa sva primerjala z točnimi 
+        vrednostmi, ki sva jih izračunala v prejšnjem delu
     \item Najprej sva želela z rekurzijo nareidti SA na grafih z n = 9 in vemi možnimi mu-ji z nastavitvami \texttt{max\_steps = 300}, \texttt{T\_start = 3}, \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}.
     \item Rekurzija, ki sva jo uporabila vzame graf iz točnih vrednosti, ki sva jih izračunala z majhne grafe. vzela sva grafe z 8 vozlič in istim mu, ter dodala eno povezavo od dodanega vozlišča na poljubno vozlišče
     da sva ohranila povezan graf. ko pa je mu prevelik (saj je max mu pri n=8 enak 21) SA vzame približek ki ga je izračunal prej in doda eno povezavo tako da se mu za 1 poveča.
