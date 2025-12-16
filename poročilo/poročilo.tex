@@ -249,12 +249,41 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
 
         \begin{figure}[H]
             \centering
+            \begin{minipage}{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../2_del/slike_min/graf_min_mu3_n11.png}
+                \caption{MIN Graf za $\mu=3$}
+            \end{minipage}\hfill
+            \begin{minipage}{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../2_del/slike_min/graf_min_mu7_n18.png}
+                \caption{MIN Graf za $\mu=7$}
+            \end{minipage}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
         \end{figure}
 
         Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
         Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsakemu vozli\v{s}\v{c}u prirejeno vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
         Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu (izjema je primer, ko je ciklomatsko stevilo 1) z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala proti 3.
+
+        
+        \begin{figure}[H]
+            \centering
+            \begin{minipage}{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../2_del/slike_max/graf_max_mu3_n13.png}
+                \caption{MAX Graf za $\mu=3$}
+            \end{minipage}\hfill
+            \begin{minipage}{0.4\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../2_del/slike_max/graf_max_mu4_n12.png}
+                \caption{MAX Graf za $\mu=4$}
+            \end{minipage}
+        \end{figure}
 
         \begin{figure}[H]
             \centering
@@ -322,8 +351,41 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     Pri minimiziranju geodetskega \v{s}tevila poti v grafih se je pri $\mu \geq 3$ za\v{c}elo pojavljati, da grafi niso ve\v{c} vsebovali zgolj ciklov dol\v{z}ine $3$, 
     temve\v{c} so za\v{c}eli tvoriti strukture, ki jih lahko opi\v{s}emo kot nekak\v{s}ne piramide v prostoru. Pri $\mu = 3$ ima graf eno tristrano piramido in eno centralno vozli\v{s}\v{c}e. 
     Pri $\mu = 4$ se na to centralno vozli\v{s}\v{c}e doda \v{s}e en cikel dol\v{z}ine $3$, pri $\mu = 5$ pa \v{s}e en tak cikel, dokler se pri $\mu = 6$ ne ustvari ena \v{s}tiristrana piramida. 
+
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png}
+            \caption{Graf za $\mu=3$}
+        \end{minipage}\hfill
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png}
+            \caption{Graf za $\mu=4$}
+        \end{minipage}
+    \end{figure}
+
+
     Pri nadaljnjem pove\v{c}evanju ciklomatskega \v{s}tevila se vzorec nadaljuje podobno: najprej nastajajo novi cikli dol\v{z}ine $3$, dokler se ponovno ne oblikuje nova piramidna struktura.
     Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega \v{s}tevila oblikujejo grafi, v katerih so cikli povezani zaporedno in skupaj tvorijo verigo.
+
+    \begin{figure}[H]
+        \centering
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png}
+            \caption{MAX graf za $\mu=3$}
+            \label{fig:max_mu3}
+        \end{minipage}\hfill
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png}
+            \caption{MAX graf za $\mu=4$}
+            \label{fig:max_mu4}
+        \end{minipage}
+    \end{figure}
+
 
 \end{itemize}
 
