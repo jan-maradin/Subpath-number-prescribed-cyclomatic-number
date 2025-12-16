@@ -6,6 +6,9 @@
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definicija}
@@ -93,10 +96,7 @@ V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim števil
     \[
     P = e^{-\frac{\delta}{T}},
     \]
-    kjer je 
-    \[
-    \delta = \lvert f(x') - f(x) \rvert
-    \]
+    kjer je $\delta$ 
     razlika med novo vrednostjo ciljne funkcije in trenutno najboljšo vrednostjo. Parameter $T$ predstavlja temperaturo, 
     ki se skozi iteracije postopoma zmanjšuje. Temperatura se ohlaja po pravilu
     \[
@@ -119,10 +119,10 @@ V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim števil
 \section*{1.~del projektne naloge}
 
 V tem delu projektne naloge sva za dano število vozlišč in za vsa pripadajoča ciklomatska števila 
-poiskala grafe z najmanjšim številom podpoti. V tem delu se torej nisva osredotočala na geodetske podpoti.
+poiskala grafe z najmanjšim številom podpoti, torej se nisva osredotočala na geodetske podpoti.
 
 Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek iskanja zelo časovno zahteven, 
-zato sva se pri eksperimentalnem delu omejila na grafe z največ 9 vozlišči. V prvem delu projektne naloge 
+zato sva se omejila na grafe z največ 9 vozlišči. V prvem delu projektne naloge 
 sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši, zato sva natančno iskanje 
 za majhne grafe in algoritem SA izvajala na isti množici grafov.
 
@@ -143,24 +143,33 @@ za majhne grafe in algoritem SA izvajala na isti množici grafov.
 
 
 \textbf{1.del z SA}
+Vbistvu naju je zanimalo kako dobro deluje SA, če spremeniva določene parametre. Rezultate pa sva primerjala z točnimi vrednostmi, ki sva jih izračunala v prejšnjem delu.
 \begin{itemize}
-    \item Vbistvu naju je zanimalo kako dobro deluje SA, če spremeniva določene parametre. Rezultate pa sva primerjala z točnimi 
-        vrednostmi, ki sva jih izračunala v prejšnjem delu.
-    \item Najprej sva želela z rekurzijo nareidti SA na grafih z n = 9 in vemi možnimi mu-ji z nastavitvami \texttt{max\_steps = 300}, \texttt{T\_start = 3}, \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}.
-    \item Rekurzija, ki sva jo uporabila vzame graf iz točnih vrednosti, ki sva jih izračunala za majhne grafe. Vzela sva grafe z 8 vozlič in istim mu, ter dodala eno povezavo od dodanega vozlišča na poljubno vozlišče
-    da sva ohranila povezan graf. ko pa je mu prevelik (saj je max mu pri n=8 enak 21) SA vzame približek ki ga je izračunal prej in doda eno povezavo tako da se mu za 1 poveča.
+    \item Najprej sva se osredotočila na grafe z n = 9 in vemi možnimi mu-ji z nastavitvami \texttt{max\_steps = 300}, \texttt{T\_start = 3}, 
+    \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Torej sva vbistvu iskala kateri dober priblićek bi dala v SA kot začetno vrednost, da bi bila
+     čim večja verjetnost da se algoritem nebi ustavil v lokalnem ekstremu.
+    \item Koda za ta del je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}, rezultati pa v \texttt{1del\_SA\_n\_9.csv},
+    \item Začetne približke sva skonstruirala iz točnih vrednosti prejšnega dela, tako da sva vzela graf z 8 vozlič in istim ciklomatskim številom, 
+    ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva pognala SA na ciklomatskem številu, ki je večji od 21 
+    (to je maksimum ciklomatsko število za grafe z 8 vozlišči) sva določila da SA vzame približek ki ga je izračunal prej in doda eno "naključno" 
+    povezavo tako da se ciklomatsko število za 1 poveča.
     \item \textbf{NAPIŠI UGOTOVITVE ZA N = 9}
-    \item Nato sva izvajala SA za grafe z n = 8. Tu pa sva pregledovala tudi kako spreminjanje temperature in števila korakov vliva na rezultate in čas trajanja.
-    \item Primerjala sva kaj je razlika ko je začetna temperatura 30 ali 3. potem pa sva še pogledala kaj se spremeni če je število korakov 100, 2000 ali 4000
-    \item  \textbf{komentar iz najinih polomov:} Pognala sva kodo \texttt{vecji\_grafi} za $n = 8$, da bova rezultate primerjala
-        z različico \texttt{\_live}. Izvajala sva jo za minimum in maksimum ter za različno
-        število ponovitev (300 in 4000). Prav tako sva v kodo dodala možnost nastavljanja
-        $N$ za poljuben $n$, tako da program sam izračuna $\mu_{\text{max, prev}}$ in
-        $\mu_{\text{max, n}}$. \\
+    
+
+    \item Nato sva izvajala SA na grafih z osmimi vozlišči. Tu sva pregledovala kako spreminjanje temperature in števila korakov vpliva na rezultate in čas trajanja algoritma.
+    Primerjala sva kaj je razlika ko je začetna temperatura 30 ali 3, ter kakšne so razlike v rezultatih ko je število korakov 100, 2000 ali 4000. 
+    Za konec pa sva pognala kodo brez "dobrih" začetnih približkov, torej sva kot začetni graf dala v SA naključen graf z izbranim ciklomatskim številom in osmimi vozlišči.
+    \item  \textbf{opomba} 
         za max je trajalo 8 minut pri 4000 \\
         za max T=30 N= 300--- 3,5min \\
         za min T= 6 N= 2000 --- 
-    \item \textbf{ugotoviitve za n = 8}
+    \item \textbf{UGOTOVITVE za $n = 8$}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_max.png}
+            \caption{Graf maksimalnih odmikov za $n=8$}
+            \label{fig:odmiki_max_n8}
+        \end{figure}
 \end{itemize}
 
 
