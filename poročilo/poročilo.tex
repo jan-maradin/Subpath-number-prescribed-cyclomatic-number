@@ -108,15 +108,6 @@ V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim števil
     Začetno temperaturo sva po potrebi prilagajala.
 
 
-    \section*{to do-- če bo čas}     
-        \begin{itemize}
-        \item prveri dodatne lastnosti v grafih -zapiši funcijo ki pregleduje tudi ostale lastnosti v 2.delu, npr.dvodelnost ali kaj takega
-        \item še iz random v 2.delu?
-
-    \end{itemize}
-
-
-
 
 \section*{1.~del projektne naloge}
 
@@ -138,7 +129,7 @@ za majhne grafe in algoritem SA izvajala na isti množici grafov.
     tistega z najmanjšim oziroma največjim številom podpoti. To funcijo sva nato pognala na vseh grafih z največ 9 vozlišči 
     in vsemi možnimi ciklomatskimi števili (to število je navzgor omejeno s polnostjo grafa; na primer pri $|V| = 9$ je maksimalni $\mu = 28$).
     Rezultate pa sva shranjevala v datoteko CSV. 
-    \item Celoten pogon kode je trajal približno 80 minut.
+    \item Celotno izvajanje kode je trajalo približno 80 minut.
 
 \end{itemize}
 
@@ -155,7 +146,7 @@ Rezultate pa sva primerjala z točnimi vrednostmi, ki sva jih izračunala v prej
     \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Torej sva vbistvu iskala kateri dober priblićek bi dala v SA kot začetno vrednost, da bi bila
      čim večja verjetnost da se algoritem nebi ustavil v lokalnem ekstremu.
     \item Koda za ta del je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}, rezultati pa v \texttt{1del\_SA\_n\_9.csv},
-    \item pogon kode trajal približno 35 min
+    \item Koda se je izvajala približno 35 min
     \item Začetne približke sva skonstruirala iz točnih vrednosti prejšnega dela, tako da sva vzela graf z 8 vozlič in istim ciklomatskim številom, 
     ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva pognala SA na ciklomatskem številu, ki je večji od 21 
     (to je maksimum ciklomatsko število za grafe z 8 vozlišči) sva določila da SA vzame približek ki ga je izračunal prej in doda eno "naključno" 
@@ -246,12 +237,29 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
         kjer ime slike vsebuje par $(\mu, n)$, na katerega se nanaša.
     \item Da se je koda iztekla hitreje, sva jo prilagodila za uporabo večih jeder.
     \item \textbf{Ugotovitev:} \\
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/max_stopnja.png}
+        \end{figure}
+
         Pri grafih z majhnim \v{s}tevilom vozli\v{s}\v{c} in majhnim ciklomatskim \v{s}tevilom sva ugotovila, da so se pri minimiziranju \v{s}tevila podpoti grafi nagibali k strukturi,
-        sestavljeni iz ciklov dol\v{z}ine $3$, ki so imeli skupno eno vozli\v{s}\v{c}e, kar se je pojavilo v primerih, ko je bilo glede na dano ciklomatsko \v{s}tevilo na voljo dovolj vozli\v{s}\v{c}. 
+        sestavljeni iz ciklov dol\v{z}ine $3$, ki so imeli skupno eno vozli\v{s}\v{c}e, kar se je pojavilo v primerih, ko je bilo glede na dano ciklomatsko \v{s}tevilo na voljo dovolj vozli\v{s}\v{c}.
+        Tako se je ob povečanju ciklomatskega stevila dodal še en nov cikel dolžine 3, ko je število vozlišč dovolj veliko vrednost.
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
+        \end{figure}
+
         Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
         Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsakemu vozli\v{s}\v{c}u prirejeno vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
-        Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala. To nakazuje, da se maksimalna stopnja grafa pribli\v{z}uje vrednosti $3$, minimalna stopnja pa vrednosti $2$.
+        Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu (izjema je primer, ko je ciklomatsko stevilo 1) z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala proti 3.
 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png}
+        \end{figure}
 
 \end{itemize}
 
@@ -280,12 +288,10 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     Večjo vrednost navadno vrne pristop, ki najde graf, kjer so nova vozlišča vključena v cikel in ne kot listi, pripeti na eno vozlišče. 
     To obnašanje je posledica stohastične narave metode SA in ga ne moreva povsem odpraviti.
     
-    \item \textbf{problem: apparently nimava vseh slik:} v mapo so shranjene slike, ki jih generira druga funkcija za $\mu \le 4$, 
-    za $\mu = 5,6,7,8$ pa so shranjene slike, ki so nastale z uporabo prve funkcije.
 \end{itemize}
 
 
-\textbf{lastnosti:}
+\textbf{Lastnosti:}
  V drugem delu projektne naloge sva prav tako želela preveriti ali Izrek Knor-a zares trdi. 
     V drugem smislu nisva našla smiselne ideje kako bi imelementirata ta izrek v najino projektno nalogo, saj sva midva iskala grafe z največjim in najmanšim številom podpoti na vseh grafi in ne samo na kakusnih.
     ZA vse grafe v datoteki \texttt{2del\_subpath\_SA.csv}, sva v datoteki \texttt{pregledovanje\_lastnosti\_subpath.ipynb} 
@@ -294,7 +300,7 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     ki nam glede narezultate lastnosti preveri če drži in rezultat je bil da je izrek res
 
 
-\subsection*{Najmanjše/največje število geodetskim podpoti}
+\subsection*{Najmanjše/največje število geodetskih podpoti}
 
 \textbf{Mali grafi}
 \begin{itemize}
@@ -302,12 +308,12 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     na novo sva definirala samo funkcijo, ki išče geodetske podpoti
     \item koda je zapisana v datoteki \texttt{2del\_geodesic\_mali\_garfi.ipynb.ipynb}. Rezultati so zapisani v \texttt{2del\_geodesic\_mali\_garfi.csv}
     Slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_max}
-    \item kodo sva podgnala za Za ciklomatska števila od $\mu = 1$ do $\mu = 8$ sva za grafe z največ $10$ vozlišči
+    \item kodo sva pognala za ciklomatska števila od $\mu = 1$ do $\mu = 8$ sva za grafe z največ $10$ vozlišči
 \end{itemize}
 
 \textbf{Veliki grafi}
 \begin{itemize}
-    \item za velike grafe pri iskanjugeodetskih poti sva prav tako uporabila isto kodo kot v 2.delu za isnje podpoti, 
+    \item za velike grafe pri iskanju geodetskih poti sva prav tako uporabila isto kodo kot v 2.delu za isnje podpoti, 
     le da sedaj koda isšče najmanjše število geodetskih podpoti
     \item koda je zapisana v datoteki \texttt{2del\_geodesic\_SA.ipynb.ipynb}. Rezultati so zapisani v \texttt{2del\_geodesic\_SA.csv}
     Slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_max}
