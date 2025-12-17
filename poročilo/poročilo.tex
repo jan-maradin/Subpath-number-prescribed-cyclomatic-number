@@ -8,6 +8,7 @@
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{hyperref}
 \usepackage[most]{tcolorbox}
 
 
@@ -105,25 +106,29 @@
     T_{k+1} = \alpha T_k,
     \]
     pri čemer sva v tej projektni nalogi izbrala $\alpha = 0.995$. 
-    Začetno temperaturo sva po potrebi prilagajala.
+    Začetno temperaturo pa sva po potrebi prilagajala.
 
+\newpage
 
 
 \section*{1.~del projektne naloge}
-
-    V tem delu projektne naloge sva za dano število vozlišč in za vsa pripadajoča ciklomatska števila 
-    poiskala grafe z najmanjšim številom podpoti, torej se nisva osredotočala na geodetske podpoti.
-
+    V prvem delu projektne naloge sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši, zato sva natančno iskanje grafov
+    z generacijo vseh izomorfnih grafov in algoritem simuliranega ohlajanja testirala do iste velikosti grafov. 
+    Za dano število vozlišč in za vsa pripadajoča ciklomatska števila sva poiskala samo grafe z najmanjšim oziroma največjim številom podpoti, 
+    torej se nisva osredotočala na geodetske podpoti.
     Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek iskanja zelo časovno zahteven, 
-    zato sva se omejila na grafe z največ 9 vozlišči. V prvem delu projektne naloge 
-    sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši, zato sva natančno iskanje 
-    za majhne grafe in algoritem SA izvajala na isti množici grafov.
-
+    zato sva se omejila na grafe z največ 9 vozlišči.
+    
+    V prvem delu projektne naloge sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši. 
+    Za dano število vozlišč in vsa pripadajoča ciklomatska števila sva poiskala zgolj grafe z najmanjšim oziroma največjim 
+    številom podpoti, pri čemer se nisva osredotočala na geodetske podpoti.
+    Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek zelo časovno zahteven, zato sva analizo omejila na grafe z največ 9 vozlišči.
 
 
 \subsection*{Iskanje točnih vrednosti}
 \begin{itemize}
-    \item Koda za ta del je zapisana v datoteki \texttt{1del\_mali\_grafi.ipynb}, rezultati pa so v \texttt{1del\_mali.csv}
+    \item Koda za ta del je zapisana v datoteki \href{run:../1del_mali_grafi.ipynb}{\texttt{1del\_mali\_grafi.ipynb}}
+    \texttt{1del\_mali\_grafi.ipynb}, rezultati pa so v \texttt{1del\_mali.csv}
     \item Najprej sva definirala funkcijo, ki v podanem grafu poišče vse podpoti. To funkcijo sva nadgradila tako, 
     da za dano ciklomatsko število in število vozlišč najprej generira vse možne grafe za ta par, nato pa izbere in shrani 
     tistega z najmanjšim oziroma največjim številom podpoti. To funcijo sva nato pognala na vseh grafih z največ 9 vozlišči 
