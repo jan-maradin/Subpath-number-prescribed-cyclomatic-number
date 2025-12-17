@@ -42,6 +42,7 @@
     ter primerjavo rezultatov pri spremembah parametrov. V tem delu sva obravnavala grafe z manjšim številom vozlišč in vsemi možnimi vrednostmi ciklomatskega števila. 
     V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim številom ter podrobneje analizirala njihove oblike in značilnosti.
 
+\medskip    
 
 \section*{Teoretično ozadje}
     \begin{itemize}
@@ -87,6 +88,7 @@
 
     \end{itemize}
 
+\medskip
 
 \section*{Simulated annealing- simulirano ohlajanje}   
     Za velike grafe sva tako v 1. delu kot v 2. delu uporabljala Simulated annealing. To je optimizacijski algoritem, ki se uporablja za iskanje približno najboljših 
@@ -112,52 +114,32 @@
 
 
 \section*{1.~del projektne naloge}
-    V prvem delu projektne naloge sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši, zato sva natančno iskanje grafov
-    z generacijo vseh izomorfnih grafov in algoritem simuliranega ohlajanja testirala do iste velikosti grafov. 
-    Za dano število vozlišč in za vsa pripadajoča ciklomatska števila sva poiskala samo grafe z najmanjšim oziroma največjim številom podpoti, 
-    torej se nisva osredotočala na geodetske podpoti.
-    Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek iskanja zelo časovno zahteven, 
-    zato sva se omejila na grafe z največ 9 vozlišči.
-    
     V prvem delu projektne naloge sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši. 
     Za dano število vozlišč in vsa pripadajoča ciklomatska števila sva poiskala zgolj grafe z najmanjšim oziroma največjim 
     številom podpoti, pri čemer se nisva osredotočala na geodetske podpoti.
     Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek zelo časovno zahteven, zato sva analizo omejila na grafe z največ 9 vozlišči.
 
+\medskip
 
-\subsection*{Iskanje točnih vrednosti}
+\subsection*{Izračun točnih ekstremnih vrednosti}
 \begin{itemize}
-    \item Koda za ta del je zapisana v datoteki \href{run:../1del_mali_grafi.ipynb}{\texttt{1del\_mali\_grafi.ipynb}}
-    \texttt{1del\_mali\_grafi.ipynb}, rezultati pa so v \texttt{1del\_mali.csv}
-    \item Najprej sva definirala funkcijo, ki v podanem grafu poišče vse podpoti. To funkcijo sva nadgradila tako, 
-    da za dano ciklomatsko število in število vozlišč najprej generira vse možne grafe za ta par, nato pa izbere in shrani 
-    tistega z najmanjšim oziroma največjim številom podpoti. To funcijo sva nato pognala na vseh grafih z največ 9 vozlišči 
-    in vsemi možnimi ciklomatskimi števili (to število je navzgor omejeno s polnostjo grafa; na primer pri $|V| = 9$ je maksimalni $\mu = 28$).
-    Rezultate pa sva shranjevala v datoteko CSV. 
+    \item Vse datoteke za ta del so shranjene v mapi \texttt{1\_del}; koda je zapisana v datoteki \texttt{1del\_mali\_grafi.ipynb}, rezultati pa v \texttt{1del\_mali.csv}.
+    \item Najprej sva definirala funkcijo, ki v podanem grafu poišče vse podpoti. To funkcijo sva nadgradila tako, da za dano ciklomatsko število 
+        in število vozlišč najprej generira vse možne grafe za ta par, nato pa izbere in shrani tistega z najmanjšim oziroma največjim številom podpoti. 
+        To funkcijo sva nato pognala na vseh grafih z največ 9 vozlišči in vsemi možnimi ciklomatskimi števili (to število je navzgor omejeno s polnostjo grafa; 
+        na primer pri $|V| = 9$ je maksimalni $\mu = 28$).
     \item Celotno izvajanje kode je trajalo približno 80 minut.
-
 \end{itemize}
 
+\medskip
 
+\subsection*{1.~del z algoritmom SA}
+V tem delu sva proučevala delovanje algoritma simuliranega ohlajanja (SA) pri različnih nastavitvah parametrov. 
+Posebej naju je zanimal vpliv različnih začetnih približkov na kakovost rezultatov pri grafih z $n = 9$, medtem 
+ko sva pri grafih z $n = 8$ analizirala, kako spremembe parametrov algoritma vplivajo na njegovo uspešnost. 
+Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšnjem delu.
 
-\subsection*{1.del z SA}
-    Zanimalo naju je kako dobro deluje SA, če spremeniva določene parametre. 
-    Rezultate pa sva primerjala z točnimi vrednostmi, ki sva jih izračunala v prejšnjem delu.
-
-
-\fbox{$n = 9$}
-\begin{itemize}
-    \item Najprej sva se osredotočila na grafe z n = 9 in vemi možnimi mu-ji z nastavitvami \texttt{max\_steps = 300}, \texttt{T\_start = 3}, 
-    \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Torej sva vbistvu iskala kateri dober priblićek bi dala v SA kot začetno vrednost, da bi bila
-     čim večja verjetnost da se algoritem nebi ustavil v lokalnem ekstremu.
-    \item Koda za ta del je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}, rezultati pa v \texttt{1del\_SA\_n\_9.csv},
-    \item Koda se je izvajala približno 35 min
-    \item Začetne približke sva skonstruirala iz točnih vrednosti prejšnega dela, tako da sva vzela graf z 8 vozlič in istim ciklomatskim številom, 
-    ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva pognala SA na ciklomatskem številu, ki je večji od 21 
-    (to je maksimum ciklomatsko število za grafe z 8 vozlišči) sva določila da SA vzame približek ki ga je izračunal prej in doda eno "naključno" 
-    povezavo tako da se ciklomatsko število za 1 poveča.
-    \item \textbf{NAPIŠI UGOTOVITVE ZA N = 9}
-\end{itemize}  
+\smallskip
 
 \fbox{$n = 8$}
 \begin{itemize}
@@ -216,6 +198,26 @@
     Najslabše približke sva dobila pri začetni temperaturi 6 in stotih korakih.
 
 \end{itemize}
+
+\fbox{$n = 9$}
+\begin{itemize}
+    \item Za grafe z devetimi vozlišči sva definirala tri različne načine SA-ja, vse pripadajoče datoteke za so shranjene v mapi \texttt{1\_del: SA\_n9}, koda je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}. 
+    \item V prvi način SA sva začetne začetne približke sva skonstruirala iz točnih vrednosti prejšnega dela, tako da sva vzela graf z 8 vozlič in istim ciklomatskim številom, 
+        ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva želela obravnavati graf z ciklomatskem številom, ki je večji od 21 
+        (to je maksimum ciklomatsko število za grafe z 8 vozlišči) sva določila da SA vzame približek ki ga je izračunal prej in doda eno "naključno" 
+        povezavo tako da se ciklomatsko število za 1 poveča. Za SA sva uporabila naslednje nastavitve:  \texttt{max\_steps = 300}, \texttt{T\_start = 3}, 
+        \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Rezultati tega načina so zapisani v \texttt{1del\_SA\_n\_9.csv}.
+    \item Drugi način je bil definiran na podoben način, le da sva namesto točnih približkov za grafe ze osmimi vozlišči vzela približke, ki sva jih dobila ko sva SA izvedla na grafih velikost $n=8$
+        pri temperaturi $T = 3$ in $N = 300$, torej sva iskala približke za grafe z največjim/najmanjšim številom podpoti iz približkov. Rezultati so zapisani v datoteki \texttt{1del\_SA\_n9\_priblizki8.csv}.
+    \item V tretjem načinu sva namesto že izračuunanih približkov, kot začetni graf za SA definirala, da koda izbere samo random graf z izvranim ciklomatskim številom in devetimi vozlišči, rezultate pa sva zapisala v 
+        \texttt{1del\_SA\_n9\_priblizki8.csv}.
+    \item Za vsako od smeri (torej za max ali min) se je za vsako od teh treh načino koda izvajala med 30 in 40 miut
+    \item \textbf{UGOTOVITVE:}
+    
+
+
+
+\end{itemize}  
 
 
 \section*{2.~del projektne naloge}
