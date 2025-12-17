@@ -142,7 +142,8 @@ Posebej naju je zanimal vpliv različnih začetnih približkov na kakovost rezul
 ko sva pri grafih z $n = 8$ analizirala, kako spremembe parametrov algoritma vplivajo na njegovo uspešnost. 
 Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšnjem delu.
 
-\smallskip
+
+\medskip
 
 \fbox{$n = 8$}
 \begin{itemize}
@@ -151,7 +152,7 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
     Za konec pa sva pognala kodo brez dobrih začetnih približkov, torej sva kot začetni graf dala v SA naključen graf z izbranim ciklomatskim številom in osmimi vozlišči.
     \item  \textbf{Opomba:} 
         Za maksimum pri 4000 korakih je zagon kode trajal 8 minut za maksimum pri začetni temperaturi 30 in številu korakov 300 pa 3,5 minut.
-    \item \textbf{UGOTOVITVE}
+    \item \textbf{UGOTOVITVE:}
         \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_max.png}
@@ -159,12 +160,7 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
             \label{fig:odmiki_max_n8}
         \end{figure}
 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.6\textwidth]{../1_del/SA_n8_parametri_csv/slike_n8_parametri/povzetek_max.png}
-            \caption{Povzetek za maksimalno število podpoti za $n=8$}
-            \label{fig:povzetek_max_n8}
-        \end{figure}
+        \input{../1_del/SA_n8_parametri_csv/povzetek_max_n8.tex}
 
     Iz zgornjih grafov za maksimalne število podpoti lahko opazimo, da sta najmanjša odstopanja dosegla algoritem SA, inicializiran 
     z naključnimi grafi, ter algoritem SA s 4000 koraki. Pričakovano je, da večje število korakov vodi do boljšega približka, 
@@ -186,13 +182,7 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
             \label{fig:rel_odmik_min_n8}
         \end{figure}
 
-
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.6\textwidth]{../1_del/SA_n8_parametri_csv/slike_n8_parametri/tabela_povzetek_min.png}
-            \caption{Tabela odmikov za minimum}
-            \label{fig:tabela_min_n8}
-        \end{figure}
+        \input{../1_del/SA_n8_parametri_csv/povzetek_min_n8.tex}
 
     Rezultati odmikov pri iskanju grafov z minimalnim številom podpoti so bili nepričakovani. Kot je razvidno s slike~5, so se najmanjša odstopanja 
     pojavila pri višji začetni temperaturi, medtem ko večje število korakov ni nujno prispevalo k boljšim približkom. Najmanjše število odmikov 
@@ -202,17 +192,19 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
 
 \end{itemize}
 
+\bigskip
+
 \fbox{$n = 9$}
 \begin{itemize}
-    \item Za grafe z devetimi vozlišči sva definirala tri različne načine SA-ja, vse pripadajoče datoteke za so shranjene v mapi \texttt{1\_del: SA\_n9}, koda je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}. 
-    \item V prvi način SA sva začetne začetne približke sva skonstruirala iz točnih vrednosti prejšnega dela, tako da sva vzela graf z 8 vozlič in istim ciklomatskim številom, 
-        ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva želela obravnavati graf z ciklomatskem številom, ki je večji od 21 
+    \item Za grafe z devetimi vozlišči sva definirala tri različne načine SA-ja, vse pripadajoče datoteke so shranjene v mapi \texttt{1\_del: SA\_n9}, koda pa je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}. 
+    \item V prvi načinu SA-ja na grafih z devetimi vozlišči sva začetne začetne približke skonstruirala iz točnih vrednosti, tako da sva vzela graf z osmimi vozlišči in istim ciklomatskim številom, 
+        ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva želela obravnavati graf z ciklomatskim številom, ki je večji od 21 
         (to je maksimum ciklomatsko število za grafe z 8 vozlišči) sva določila da SA vzame približek ki ga je izračunal prej in doda eno "naključno" 
         povezavo tako da se ciklomatsko število za 1 poveča. Za SA sva uporabila naslednje nastavitve:  \texttt{max\_steps = 300}, \texttt{T\_start = 3}, 
         \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Rezultati tega načina so zapisani v \texttt{1del\_SA\_n\_9.csv}.
-    \item Drugi način je bil definiran na podoben način, le da sva namesto točnih približkov za grafe ze osmimi vozlišči vzela približke, ki sva jih dobila ko sva SA izvedla na grafih velikost $n=8$
-        pri temperaturi $T = 3$ in $N = 300$, torej sva iskala približke za grafe z največjim/najmanjšim številom podpoti iz približkov. Rezultati so zapisani v datoteki \texttt{1del\_SA\_n9\_priblizki8.csv}.
-    \item V tretjem načinu sva namesto že izračuunanih približkov, kot začetni graf za SA definirala, da koda izbere samo random graf z izvranim ciklomatskim številom in devetimi vozlišči, rezultate pa sva zapisala v 
+    \item Drugi način je bil definiran na podobno kot prvi, razlika je bila le da sva namesto točnih približkov za grafe ze osmimi vozlišči vzela približke, ki sva jih dobila ko sva SA izvedla na grafih velikost $n=8$
+        pri temperaturi $T = 3$ in $N = 300$, torej sva iskala približke za grafe z največjim/ najmanjšim številom podpoti iz približkov. Rezultati so zapisani v datoteki \texttt{1del\_SA\_n9\_priblizki8.csv}.
+    \item V tretjem načinu pa sva namesto že izračunanih približkov, kot sva to naredila v prejšnih dveh primerih, vzela samo naključni graf z izbranim ciklomatskim številom in devetimi vozlišči, rezultate pa sva zapisala v 
         \texttt{1del\_SA\_n9\_priblizki8.csv}.
     \item Za vsako od smeri (torej za max ali min) se je za vsako od teh treh načino koda izvajala med 30 in 40 miut
     \item \textbf{UGOTOVITVE:}
@@ -222,16 +214,22 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
         \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png}
-            \caption{Graf odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z $n=9$}
+            \caption{Graf odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z devet vozlišči}
             \label{fig:n9_odmiki_min}
         \end{figure}
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png}
-            \caption{Graf relativnih odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z $n=9$}
+            \caption{Graf relativnih odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z devet vozlišči}
             \label{fig:n9_relativni_odmiki_min}
         \end{figure}
+
+        Kot pričakovano je algoritem z naključnimi začetnimi grafi dosegel najslabše približke pri iskanju grafov z minimalnim številom podpoti.
+        Večja odstopanja so se pojavila, zlasti ko je bilo ciklomatsko število večje od 25.  
+        Nepričakovano je imel najmanjše absolutne odmike drugi način (približki8). Kljub temu pa je imel ta način največje relativne odmike, 
+        saj so se ti pojavljali predvsem pri manjših ciklomatskih številih.
+        Na podlagi izračunanih odmikov, se je zato prvi način izkazal kot najustreznejši, saj ima tako v absolutnem kot tudi v relativnem smislu najmanjše napake.
 
         \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_max_n9.tex}
     
@@ -248,8 +246,14 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
             \caption{Graf relativnih odmikov pri različnih začetih garfih SA za maksimalno število podpoti v grafih z $n=9$}
             \label{fig:n9_relativni_odmiki_max}
         \end{figure}
+
+        Vsi trije načini so pri iskanju maksimuma imeli veliko manjše raltivne odmike kot pri iskanju minimuma, saj je bil pri maksimumu največji relativni odmik
+        približno 5 %, pri minimumu
+
 \end{itemize}  
 
+
+\newpage
 
 \section*{2.~del projektne naloge}
 
