@@ -41,7 +41,7 @@
     številom podpoti ter geodetskim številom podpoti, nato pa sva analizirala njihove oblike in lastnosti. 
     Zanimalo naju je predvsem, kako so videti takšni grafi in kako se njihove strukture postopoma spreminjajo z večanjem števila vozlišč ter ciklomatskega števila.
 
-    Projektne naloge sva se v bistvu lotila na dva med seboj povezana načina. V prvem delu sva se osredotočila na analizo različnih metod simuliranega ohlajanja (SA) 
+    Projektne naloge sva se v lotila na dva med seboj povezana načina. V prvem delu sva se osredotočila na analizo različnih metod simuliranega ohlajanja (SA) 
     ter primerjavo rezultatov pri spremembah parametrov. V tem delu sva obravnavala grafe z manjšim številom vozlišč in vsemi možnimi vrednostmi ciklomatskega števila. 
     V drugem delu naloge pa sva se usmerila na grafe z manjšim ciklomatskim številom ter podrobneje analizirala njihove oblike in značilnosti.
 
@@ -146,7 +146,7 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
 
 \fbox{$n = 8$}
 \begin{itemize}
-    \item Nato sva izvajala SA na grafih z osmimi vozlišči. Tu sva pregledovala kako spreminjanje temperature in števila korakov vpliva na rezultate in čas trajanja algoritma.
+    \item Izvajala sva SA na grafih z 8 vozlišči. Tu sva pregledovala kako spreminjanje temperature in števila korakov vpliva na rezultate in čas trajanja algoritma.
     Primerjala sva kaj je razlika ko je začetna temperatura 30 ali 3, ter kakšne so razlike v rezultatih ko je število korakov 100, 2000 ali 4000. 
     Za konec pa sva pognala kodo brez dobrih začetnih približkov, torej sva kot začetni graf dala v SA naključen graf z izbranim ciklomatskim številom in osmimi vozlišči.
     \item  \textbf{Opomba:} 
@@ -254,8 +254,8 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
 \section*{2.~del projektne naloge}
 
 V drugem delu projektne naloge sva se osredotočila na opazovanje oblik grafov. Fiksirala sva ciklomatsko število do $\mu = 8$ in izvajala kodo 
-na majhnih grafih do $n = 10$, nato pa še simulirano ohlajanje (SA) na grafih z $n = 11$ do $n = 30$. 
-Nato sva uporabila podani izrek Knorra in preverila, ali drži. 
+na majhnih grafih do $n = 10$, nato pa še simulirano ohlajanje (SA) na grafih od $n = 11$ do $n = 30$. 
+Uporabila sva uporabila podani izrek Knorra in preverila, ali drži. 
 Za konec sva tako za majhne grafe kot tudi za velike grafe z metodo SA izvedla analizo oblik tudi za grafe z najmanjšim oziroma največjim številom geodetskih podpoti.
 
 Vsa koda za drugi del je zapisana v mapi \texttt{2\_del}. 
@@ -273,7 +273,6 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
         \texttt{2del\_subpath\_mali\_grafi.csv}.\\
         Za lažjo analizo oblik grafov sva si vse slike v drugem delu shranjevala v mapi \texttt{slike\_max} in \texttt{slike\_min}, 
         kjer ime slike vsebuje par $(\mu, n)$, na katerega se nanaša.
-    \item Da se je koda iztekla hitreje, sva jo prilagodila za uporabo večih jeder.
     \item \textbf{Ugotovitev:} \\
 
         \begin{figure}[H]
@@ -304,8 +303,8 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
             \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
         \end{figure}
 
-        Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
-        Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsakemu vozli\v{s}\v{c}u prirejeno vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
+        Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča. \\
+        Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsako vozčišče vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
         Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu (izjema je primer, ko je ciklomatsko stevilo 1) z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala proti 3.
 
         
@@ -360,9 +359,9 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
 
 \textbf{Lastnosti:}
  V drugem delu projektne naloge sva prav tako želela preveriti ali Izrek Knor-a zares trdi. 
-    V drugem smislu nisva našla smiselne ideje kako bi imelementirata ta izrek v najino projektno nalogo, saj sva midva iskala grafe z največjim in najmanšim številom podpoti na vseh grafi in ne samo na kakusnih.
+    V drugem smislu nisva našla smiselne ideje kako bi imelementirata ta izrek v najino projektno nalogo, saj sva midva iskala grafe z največjim in najmanšim številom podpoti na vseh grafi in ne samo na kaktusnih grafih.
     ZA vse grafe v datoteki \texttt{2del\_subpath\_SA.csv}, sva v datoteki \texttt{pregledovanje\_lastnosti\_subpath.ipynb} 
-    Zapisovala funkcije, ki za vsak max in vsak min graf ali je kaktusni in ali je PTC graf. Rezulati so zzapisani v datoteki \texttt{pregledovanje\_lastnosti\_subpath.csv} 
+    Zapisovala funkcije, ki za vsak max in vsak min graf ali je kaktusni in ali je PTC graf. Rezulati so zapisani v datoteki \texttt{pregledovanje\_lastnosti\_subpath.csv} 
     Izrek Knor-a trdi, da v primeru da je graf z največjim številom podpoti kaktusen mora biti tudi PTC. Da sva preverila če ta implikacija res trdi sva zapisala funkcijo, 
     ki nam glede narezultate lastnosti preveri če drži in rezultat je bil da je izrek res
 
