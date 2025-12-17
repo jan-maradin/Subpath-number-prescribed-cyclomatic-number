@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.9)  17 DEC 2025 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.9)  17 DEC 2025 18:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -749,13 +749,13 @@ See the caption package documentation for explanation.
 <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png, id=79, 647.75333pt x 424.25166pt>
 File: ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png Graphic file (type png)
 <use ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png>
-Package pdftex.def Info: ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png  used on input line 173.
+Package pdftex.def Info: ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png  used on input line 172.
 (pdftex.def)             Requested size: 455.24411pt x 298.16527pt.
  [4 <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_max.png>]
 <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png, id=87, 662.475pt x 424.25166pt>
 File: ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png Graphic file (type png)
 <use ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png>
-Package pdftex.def Info: ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png  used on input line 180.
+Package pdftex.def Info: ../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png  used on input line 179.
 (pdftex.def)             Requested size: 455.24411pt x 291.53635pt.
  (../1_del/SA_n8_parametri_csv/povzetek_min_n8.tex
 
@@ -763,28 +763,41 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 17.
 See the caption package documentation for explanation.
 
-[5 <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png> <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png>]) (../1_del/SA_n9/analiza_v_R_n9/povzetek_min_n9.tex [6]
+[5 <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_odmiki_min.png> <../1_del/SA_n8_parametri_csv/slike_n8_parametri/graf_relativni_odmiki_min.png>])
+<../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png, id=96, 637.04666pt x 441.65pt>
+File: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png Graphic file (type png)
+<use ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png>
+Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png  used on input line 213.
+(pdftex.def)             Requested size: 409.71692pt x 284.05pt.
+ [6]
+<../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png, id=102, 637.04666pt x 441.65pt>
+File: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png Graphic file (type png)
+<use ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png>
+Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png  used on input line 220.
+(pdftex.def)             Requested size: 409.71692pt x 284.05pt.
+ (../1_del/SA_n9/analiza_v_R_n9/povzetek_min_n9.tex
 Overfull \hbox (30.87201pt too wide) in paragraph at lines 2--11
  [] 
  []
 
+[7 <../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png> <../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 12.
 See the caption package documentation for explanation.
 
 )
-<../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png, id=101, 637.04666pt x 441.65pt>
-File: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png Graphic file (type png)
-<use ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png>
-Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png  used on input line 216.
-(pdftex.def)             Requested size: 455.24411pt x 315.61562pt.
-<../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png, id=102, 637.04666pt x 441.65pt>
-File: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png Graphic file (type png)
-<use ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png>
-Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png  used on input line 223.
-(pdftex.def)             Requested size: 455.24411pt x 315.61562pt.
- [7 <../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png>] (../1_del/SA_n9/analiza_v_R_n9/povzetek_max_n9.tex
+<../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png, id=112, 637.04666pt x 441.65pt>
+File: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png Graphic file (type png)
+<use ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png>
+Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png  used on input line 238.
+(pdftex.def)             Requested size: 409.71692pt x 284.05pt.
+<../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png, id=113, 637.04666pt x 441.65pt>
+File: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png Graphic file (type png)
+<use ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png>
+Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png  used on input line 245.
+(pdftex.def)             Requested size: 409.71692pt x 284.05pt.
+ [8 <../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png>] (../1_del/SA_n9/analiza_v_R_n9/povzetek_max_n9.tex
 Overfull \hbox (33.15617pt too wide) in paragraph at lines 2--11
  [] 
  []
@@ -794,83 +807,67 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 12.
 See the caption package documentation for explanation.
 
-)
-<../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png, id=111, 637.04666pt x 441.65pt>
-File: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png Graphic file (type png)
-<use ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png>
-Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png  used on input line 238.
-(pdftex.def)             Requested size: 409.71692pt x 284.05pt.
- [8 <../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png>]
-<../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png, id=119, 637.04666pt x 441.65pt>
-File: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png Graphic file (type png)
-<use ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png>
-Package pdftex.def Info: ../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png  used on input line 245.
-(pdftex.def)             Requested size: 409.71692pt x 284.05pt.
- [9 <../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png> <../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png>] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 280--281
-
- []
-
-<../Grafi_za_porocilo/max_stopnja.png, id=132, 497.9403pt x 354.123pt>
-File: ../Grafi_za_porocilo/max_stopnja.png Graphic file (type png)
-<use ../Grafi_za_porocilo/max_stopnja.png>
-Package pdftex.def Info: ../Grafi_za_porocilo/max_stopnja.png  used on input line 284.
-(pdftex.def)             Requested size: 409.71692pt x 291.37695pt.
-[11]
-<../2_del/slike_min/graf_min_mu3_n11.png, id=140, 346.1733pt x 339.669pt>
-File: ../2_del/slike_min/graf_min_mu3_n11.png Graphic file (type png)
-<use ../2_del/slike_min/graf_min_mu3_n11.png>
-Package pdftex.def Info: ../2_del/slike_min/graf_min_mu3_n11.png  used on input line 295.
-(pdftex.def)             Requested size: 182.09486pt x 178.67096pt.
-<../2_del/slike_min/graf_min_mu7_n18.png, id=141, 380.8629pt x 339.669pt>
-File: ../2_del/slike_min/graf_min_mu7_n18.png Graphic file (type png)
-<use ../2_del/slike_min/graf_min_mu7_n18.png>
-Package pdftex.def Info: ../2_del/slike_min/graf_min_mu7_n18.png  used on input line 300.
-(pdftex.def)             Requested size: 182.09486pt x 162.39658pt.
-<../Grafi_za_porocilo/c3_min_grafi.png, id=142, 498.663pt x 354.123pt>
+) [9 <../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png>] [10]
+<../Grafi_za_porocilo/c3_min_grafi.png, id=134, 498.663pt x 354.123pt>
 File: ../Grafi_za_porocilo/c3_min_grafi.png Graphic file (type png)
 <use ../Grafi_za_porocilo/c3_min_grafi.png>
-Package pdftex.def Info: ../Grafi_za_porocilo/c3_min_grafi.png  used on input line 307.
+Package pdftex.def Info: ../Grafi_za_porocilo/c3_min_grafi.png  used on input line 318.
 (pdftex.def)             Requested size: 409.71692pt x 290.96089pt.
- [12 <../Grafi_za_porocilo/max_stopnja.png> <../2_del/slike_min/graf_min_mu3_n11.png> <../2_del/slike_min/graf_min_mu7_n18.png>]
-<../2_del/slike_max/graf_max_mu3_n13.png, id=152, 326.6604pt x 339.669pt>
+<../2_del/slike_min/graf_min_mu3_n11.png, id=136, 346.1733pt x 339.669pt>
+File: ../2_del/slike_min/graf_min_mu3_n11.png Graphic file (type png)
+<use ../2_del/slike_min/graf_min_mu3_n11.png>
+Package pdftex.def Info: ../2_del/slike_min/graf_min_mu3_n11.png  used on input line 329.
+(pdftex.def)             Requested size: 182.09486pt x 178.67096pt.
+<../2_del/slike_min/graf_min_mu7_n18.png, id=137, 380.8629pt x 339.669pt>
+File: ../2_del/slike_min/graf_min_mu7_n18.png Graphic file (type png)
+<use ../2_del/slike_min/graf_min_mu7_n18.png>
+Package pdftex.def Info: ../2_del/slike_min/graf_min_mu7_n18.png  used on input line 334.
+(pdftex.def)             Requested size: 182.09486pt x 162.39658pt.
+ [11 <../Grafi_za_porocilo/c3_min_grafi.png>]
+<../2_del/slike_max/graf_max_mu3_n13.png, id=144, 326.6604pt x 339.669pt>
 File: ../2_del/slike_max/graf_max_mu3_n13.png Graphic file (type png)
 <use ../2_del/slike_max/graf_max_mu3_n13.png>
-Package pdftex.def Info: ../2_del/slike_max/graf_max_mu3_n13.png  used on input line 319.
+Package pdftex.def Info: ../2_del/slike_max/graf_max_mu3_n13.png  used on input line 349.
 (pdftex.def)             Requested size: 182.09486pt x 189.3478pt.
-<../2_del/slike_max/graf_max_mu4_n12.png, id=153, 338.2236pt x 339.669pt>
+<../2_del/slike_max/graf_max_mu4_n12.png, id=145, 338.2236pt x 339.669pt>
 File: ../2_del/slike_max/graf_max_mu4_n12.png Graphic file (type png)
 <use ../2_del/slike_max/graf_max_mu4_n12.png>
-Package pdftex.def Info: ../2_del/slike_max/graf_max_mu4_n12.png  used on input line 324.
+Package pdftex.def Info: ../2_del/slike_max/graf_max_mu4_n12.png  used on input line 354.
 (pdftex.def)             Requested size: 182.09486pt x 182.87431pt.
-<../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png, id=154, 498.663pt x 354.123pt>
+<../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png, id=146, 498.663pt x 354.123pt>
 File: ../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png Graphic file (type png)
 <use ../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png>
-Package pdftex.def Info: ../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png  used on input line 331.
+Package pdftex.def Info: ../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png  used on input line 363.
 (pdftex.def)             Requested size: 455.24411pt x 323.28989pt.
- [13 <../Grafi_za_porocilo/c3_min_grafi.png> <../2_del/slike_max/graf_max_mu3_n13.png> <../2_del/slike_max/graf_max_mu4_n12.png>] [14 <../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png>]
-<../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png, id=171, 375.804pt x 339.669pt>
+ [12 <../2_del/slike_min/graf_min_mu3_n11.png> <../2_del/slike_min/graf_min_mu7_n18.png> <../2_del/slike_max/graf_max_mu3_n13.png> <../2_del/slike_max/graf_max_mu4_n12.png>]
+<../Grafi_za_porocilo/max_stopnja.png, id=157, 497.9403pt x 354.123pt>
+File: ../Grafi_za_porocilo/max_stopnja.png Graphic file (type png)
+<use ../Grafi_za_porocilo/max_stopnja.png>
+Package pdftex.def Info: ../Grafi_za_porocilo/max_stopnja.png  used on input line 369.
+(pdftex.def)             Requested size: 364.19667pt x 259.00475pt.
+ [13 <../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png> <../Grafi_za_porocilo/max_stopnja.png>]
+<../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png, id=167, 375.804pt x 339.669pt>
 File: ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png Graphic file (type png)
 <use ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png>
-Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png  used on input line 400.
+Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png  used on input line 407.
 (pdftex.def)             Requested size: 182.09486pt x 164.58377pt.
-<../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png, id=172, 455.301pt x 267.399pt>
+<../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png, id=168, 455.301pt x 267.399pt>
 File: ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png Graphic file (type png)
 <use ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png>
-Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png  used on input line 405.
+Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png  used on input line 412.
 (pdftex.def)             Requested size: 182.09486pt x 106.94138pt.
- [15]
-<../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png, id=178, 455.301pt x 275.3487pt>
+ [14]
+<../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png, id=174, 455.301pt x 275.3487pt>
 File: ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png Graphic file (type png)
 <use ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png>
-Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png  used on input line 418.
+Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png  used on input line 425.
 (pdftex.def)             Requested size: 218.51521pt x 132.14905pt.
-<../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png, id=179, 330.9966pt x 339.669pt>
+<../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png, id=175, 330.9966pt x 339.669pt>
 File: ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png Graphic file (type png)
 <use ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png>
-Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png  used on input line 424.
+Package pdftex.def Info: ../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png  used on input line 431.
 (pdftex.def)             Requested size: 218.51521pt x 224.24442pt.
- [16 <../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png> <../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png> <../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png> <../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png>] (./poročilo.aux)
+ [15 <../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png> <../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png> <../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png> <../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png>] (./poročilo.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -880,17 +877,17 @@ Package rerunfilecheck Info: File `poročilo.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  30245 strings out of 474222
- 607749 string characters out of 5748733
+ 607769 string characters out of 5748733
  1937975 words of memory out of 5000000
- 51963 multiletter control sequences out of 15000+600000
+ 51964 multiletter control sequences out of 15000+600000
  570893 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 93i,8n,99p,629b,742s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,9n,99p,942b,742s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on poročilo.pdf (16 pages, 598779 bytes).
+Output written on poročilo.pdf (15 pages, 602768 bytes).
 PDF statistics:
- 270 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
  247 words of extra memory for PDF output out of 10000 (max. 10000000)
 

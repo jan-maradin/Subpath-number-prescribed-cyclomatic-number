@@ -32,7 +32,7 @@
         \large \textit{Fakulteta za matematiko in fiziko}\\
         \large \textit{Univerza v Ljubljani}\\[12pt]
         \Large\textbf{Število podpoti pri grafih z danim ciklomatskim številom}\\[4pt]
-        \large \textit{Poročilo projektne naloge}\\
+        \large \textit{Poročilo projektne naloge pri predmetu finančni praktikum}\\
         \large \textit{Skupina 18: Maja Košmrlj, Jan Maradin}
     \end{center}
 
@@ -86,7 +86,7 @@
         je poseben primer kaktusnega grafa z \emph{n} vozliščci in $k$ cikli. Vsi cikli so trikotniki, povezani v verigo
         in zato graf dosega največje možno število podpoti med vsemi takšnimi grafi.
         
-        \item \textbf{Izrek} (Knor, 2025) 
+        \item \textbf{Izrek (Knor, 2025):}  
         Graf $PTC(n, k)$ enolično maksimizira število podpoti med vsemi kaktusnimi grafi z $n$ vozlišči in $k \ge 2$ cikli.
 
     \end{itemize}
@@ -94,7 +94,7 @@
 \medskip
 
 \section*{Simulated annealing- simulirano ohlajanje}   
-    Za velike grafe sva tako v 1. delu kot v 2. delu uporabljala Simulated annealing. To je optimizacijski algoritem, ki se uporablja za iskanje približno najboljših 
+    Za velike grafe sva tako v 1. delu kot v 2. delu uporabljala Simulated annealing (SA). To je optimizacijski algoritem, ki se uporablja za iskanje približkov najboljših 
     rešitev na grafih, zlasti kadar je iskalni prostor zelo velik in kompleksen. Metoda posnema proces fizičnega ohlajanja kovin: 
     na začetku dovoljuje tudi „slabše“ premike, da lahko pobegne iz lokalnih ekstremov, nato pa postopno zmanjšuje verjetnost takšnih 
     premikov, ko se temperatura znižuje. Prednost metode je, da lahko najde dobre rešitve tam, kjer bi druge metode hitro 
@@ -117,8 +117,8 @@
 
 
 \section*{1.~del projektne naloge}
-    V prvem delu projektne naloge sva želela preveriti, kateri način simuliranega ohlajanja (SA) je najučinkovitejši. 
-    Za dano število vozlišč in vsa pripadajoča ciklomatska števila sva poiskala zgolj grafe z najmanjšim oziroma največjim 
+    V prvem delu projektne naloge sva želela preveriti, kateri način simuliranega ohlajanja je najučinkovitejši. 
+    Za dano število vozlišč in vsa pripadajoča ciklomatska števila sva poiskala grafe z najmanjšim oziroma največjim 
     številom podpoti, pri čemer se nisva osredotočala na geodetske podpoti.
     Ker sva grafe iskala za vsa možna ciklomatska števila, je bil postopek zelo časovno zahteven, zato sva analizo omejila na grafe z največ 9 vozlišči.
 
@@ -143,15 +143,15 @@ ko sva pri grafih z $n = 8$ analizirala, kako spremembe parametrov algoritma vpl
 Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšnjem delu.
 
 
-\medskip
+\bigskip
 
 \fbox{$n = 8$}
 \begin{itemize}
-    \item Izvajala sva SA na grafih z 8 vozlišči. Tu sva pregledovala kako spreminjanje temperature in števila korakov vpliva na rezultate in čas trajanja algoritma.
+    \item Na grafih z osmimi vozlišči sva pregledovala kako spreminjanje temperature in števila korakov vpliva na rezultate in čas trajanja algoritma.
     Primerjala sva kaj je razlika ko je začetna temperatura 30 ali 3, ter kakšne so razlike v rezultatih ko je število korakov 100, 2000 ali 4000. 
-    Za konec pa sva pognala kodo brez dobrih začetnih približkov, torej sva kot začetni graf dala v SA naključen graf z izbranim ciklomatskim številom in osmimi vozlišči.
-    \item  \textbf{Opomba:} 
-        Za maksimum pri 4000 korakih je zagon kode trajal 8 minut za maksimum pri začetni temperaturi 30 in številu korakov 300 pa 3,5 minut.
+    Za konec pa sva pognala kodo z naključnimi začetnimi grafi, torej sva kot začetni približek simuliranega ohlajanja vzela naključen graf z izbranim ciklomatskim številom in osmimi vozlišči.
+    \item Za maksimum pri 4000 korakih je zagon kode trajal 8 minut za maksimum pri začetni temperaturi 30 in številu korakov 300 pa 3,5 minut.
+
     \item \textbf{UGOTOVITVE:}
         \begin{figure}[H]
             \centering
@@ -162,11 +162,10 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
 
         \input{../1_del/SA_n8_parametri_csv/povzetek_max_n8.tex}
 
-    Iz zgornjih grafov za maksimalne število podpoti lahko opazimo, da sta najmanjša odstopanja dosegla algoritem SA, inicializiran 
+    Iz zgornjih grafov za maksimalno število podpoti lahko opazimo, da sta najmanjša odstopanja dosegla algoritem SA, inicializiran 
     z naključnimi grafi, ter algoritem SA s 4000 koraki. Pričakovano je, da večje število korakov vodi do boljšega približka, 
     vendar pa je bilo presenetljivo, da je tudi naključna inicializacija pogosto pripeljala do pravilne vrednosti.
-    Kot sva pričakovala, je algoritem SA z najmanjšim številom korakov vrnil najslabše približke, kar je razvidno tudi iz prikazanih 
-    grafov. Poleg tega sva ugotovila, da povišanje začetne temperature ni bistveno izboljšalo iskanja grafa z največjim številom podpoti.
+    Kot sva pričakovala, je algoritem SA z najmanjšim številom korakov vrnil najslabše približke. Poleg tega sva ugotovila, da povišanje začetne temperature ni bistveno izboljšalo iskanja grafa z največjim številom podpoti.
 
         \begin{figure}[H]
             \centering
@@ -196,34 +195,35 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
 
 \fbox{$n = 9$}
 \begin{itemize}
-    \item Za grafe z devetimi vozlišči sva definirala tri različne načine SA-ja, vse pripadajoče datoteke so shranjene v mapi \texttt{1\_del: SA\_n9}, koda pa je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}. 
-    \item V prvi načinu SA-ja na grafih z devetimi vozlišči sva začetne začetne približke skonstruirala iz točnih vrednosti, tako da sva vzela graf z osmimi vozlišči in istim ciklomatskim številom, 
-        ter mu dodala vozlišče in eno povezavo tako, da je graf ostal povezan. Ko pa sva želela obravnavati graf z ciklomatskim številom, ki je večji od 21 
-        (to je maksimum ciklomatsko število za grafe z 8 vozlišči) sva določila da SA vzame približek ki ga je izračunal prej in doda eno "naključno" 
-        povezavo tako da se ciklomatsko število za 1 poveča. Za SA sva uporabila naslednje nastavitve:  \texttt{max\_steps = 300}, \texttt{T\_start = 3}, 
-        \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Rezultati tega načina so zapisani v \texttt{1del\_SA\_n\_9.csv}.
-    \item Drugi način je bil definiran na podobno kot prvi, razlika je bila le da sva namesto točnih približkov za grafe ze osmimi vozlišči vzela približke, ki sva jih dobila ko sva SA izvedla na grafih velikost $n=8$
-        pri temperaturi $T = 3$ in $N = 300$, torej sva iskala približke za grafe z največjim/ najmanjšim številom podpoti iz približkov. Rezultati so zapisani v datoteki \texttt{1del\_SA\_n9\_priblizki8.csv}.
-    \item V tretjem načinu pa sva namesto že izračunanih približkov, kot sva to naredila v prejšnih dveh primerih, vzela samo naključni graf z izbranim ciklomatskim številom in devetimi vozlišči, rezultate pa sva zapisala v 
-        \texttt{1del\_SA\_n9\_priblizki8.csv}.
-    \item Za vsako od smeri (torej za max ali min) se je za vsako od teh treh načino koda izvajala med 30 in 40 miut
+    \item Za grafe z devetimi vozlišči sva definirala tri različne načine algoritma SA. Vse pripadajoče datoteke so shranjene v mapi \texttt{1\_del/SA\_n9}, koda pa je zapisana v datoteki \texttt{1del\_SA\_n\_9.ipynb}.
+
+    \item V prvem načinu algoritma SA na grafih z devetimi vozlišči sva začetne približke skonstruirala iz točnih vrednosti. Vzeli sva graf z osmimi vozlišči in enakim ciklomatskim številom ter mu dodali vozlišče in eno povezavo, tako da je graf ostal povezan. Kadar pa sva obravnavali graf s ciklomatskim številom, večjim od 21 (to je maksimalno ciklomatsko število za grafe z osmimi vozlišči), sva določili, da SA kot začetni približek vzame rešitev, izračunano v prejšnjem koraku, in ji doda eno naključno povezavo, s čimer se ciklomatsko število poveča za 1. Za algoritem SA sva uporabili naslednje nastavitve: \texttt{max\_steps = 300}, \texttt{T\_start = 3}, \texttt{T\_end = 0.001}, \texttt{cooling = 0.99}. Rezultati tega načina so zapisani v datoteki \texttt{1del\_SA\_n\_9.csv}.
+
+    \item Drugi način je bil definiran podobno kot prvi, razlika pa je bila v tem, da sva namesto točnih približkov za grafe z osmimi vozlišči uporabili približke, ki sva jih dobili z algoritmom SA v prejšnjem delu, pri temperaturi $T = 3$ in $N = 300$. Tako sva iskala približke za grafe z največjim oziroma najmanjšim številom podpoti na podlagi že izračunanih približkov. Rezultati so zapisani v datoteki \texttt{1del\_SA\_n9\_priblizki8.csv}.
+
+    \item V tretjem načinu pa sva namesto "{dobrih}" približkov, kot v prejšnjih dveh primerih, uporabili zgolj naključni graf z izbranim ciklomatskim številom in devetimi vozlišči. Rezultate sva zapisali v datoteko \texttt{1del\_SA\_n9\_priblizki8.csv}.
+
+    \item Za vsako izmed smeri (torej za maksimum ali minimum) se je koda za vsakega izmed treh načinov izvajala med 30 in 40 minut.
+
+
     \item \textbf{UGOTOVITVE:}
-    
-        \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_min_n9.tex}
-    
+        
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png}
-            \caption{Graf odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z devet vozlišči}
+            \includegraphics[width=0.9\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png}
+            \caption{Graf odmikov pri različnih začetih grafih SA za minimalno število podpoti v grafih z devetimi vozlišči}
             \label{fig:n9_odmiki_min}
         \end{figure}
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png}
-            \caption{Graf relativnih odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z devet vozlišči}
+            \includegraphics[width=0.9\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png}
+            \caption{Graf relativnih odmikov pri različnih začetih grafih SA za minimalno število podpoti v grafih z devetimi vozlišči}
             \label{fig:n9_relativni_odmiki_min}
         \end{figure}
+
+        \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_min_n9.tex}
+    
 
         Kot pričakovano je algoritem z naključnimi začetnimi grafi dosegel najslabše približke pri iskanju grafov z minimalnim številom podpoti.
         Večja odstopanja so se pojavila, zlasti ko je bilo ciklomatsko število večje od 25.  
@@ -231,62 +231,96 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
         saj so se ti pojavljali predvsem pri manjših ciklomatskih številih.
         Na podlagi izračunanih odmikov, se je zato prvi način izkazal kot najustreznejši, saj ima tako v absolutnem kot tudi v relativnem smislu najmanjše napake.
 
-        \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_max_n9.tex}
-    
+        \medskip
+
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png}
-            \caption{Graf odmikov pri različnih začetih garfih SA za maksimalno število podpoti v grafih z $n=9$}
+            \caption{Graf odmikov pri različnih začetih grafih SA za maksimalno število podpoti v grafih z devetimi vozlišči}
             \label{fig:n9_odmiki_max}
         \end{figure}
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png}
-            \caption{Graf relativnih odmikov pri različnih začetih garfih SA za maksimalno število podpoti v grafih z $n=9$}
+            \caption{Graf relativnih odmikov pri različnih začetih grafih SA za maksimalno število podpoti v grafih z devetimi vozlišči}
             \label{fig:n9_relativni_odmiki_max}
         \end{figure}
 
-        Vsi trije načini so pri iskanju maksimuma imeli veliko manjše raltivne odmike kot pri iskanju minimuma, saj je bil pri maksimumu največji relativni odmik
-        približno 5 %, pri minimumu
+        \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_max_n9.tex}
+
+        Vsi trije načini so pri iskanju maksimuma dosegli bistveno manjše relativne odmike kot pri iskanju minimuma. Pri maksimumu je bil največji relativni odmik 
+        približno 5\,\%, medtem ko so se pri minimumu pojavljali relativni odmiki, večji od 30\,\%. Poleg tega so si bile uporabljene metode tudi med seboj bližje po uspešnosti.
+        Najmanjše absolutne odmike je imel prvi način, vendar pa je imel hkrati tudi največje relativne odmike, saj so se napake pojavljale predvsem pri manjših ciklomatskih številih. 
 
 \end{itemize}  
 
-
+ALSO KAJ TI NIMAŠ Š, Č Ž   AL ZAKAJ SO VLI SPODEJ TAKO ČUDNO ZAPISANI???
 \newpage
 
 \section*{2.~del projektne naloge}
 
-V drugem delu projektne naloge sva se osredotočila na opazovanje oblik grafov. Fiksirala sva ciklomatsko število do $\mu = 8$ in izvajala kodo 
+V drugem delu projektne naloge sva se osredotočila na opazovanje oblik grafov z najmanjšim oziroma največjim številom podpoti in geodetskih podpoti. Fiksirala sva ciklomatsko število do $\mu = 8$ in izvajala kodo
 na majhnih grafih do $n = 10$, nato pa še simulirano ohlajanje (SA) na grafih od $n = 11$ do $n = 30$. 
-Uporabila sva uporabila podani izrek Knorra in preverila, ali drži. 
-Za konec sva tako za majhne grafe kot tudi za velike grafe z metodo SA izvedla analizo oblik tudi za grafe z najmanjšim oziroma največjim številom geodetskih podpoti.
+Uporabila sva podani izrek Knorra in preverila, ali drži. 
+Za konec pa sva tako za majhne grafe kot tudi za velike grafe izvedla analizo oblik.
 
-Vsa koda za drugi del je zapisana v mapi \texttt{2\_del}. 
-Za geodetske podpoti pa je znotraj te mape mapa \texttt{Geodesic\_subpath\_number}, kjer so zapisane vse datoteke, povezane 
-z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
+Vsa koda za drugi del je shranjena v mapi \texttt{2\_del}. Dokumenti, povezani z geodetskim številom, pa se nahajajo v podmapi \texttt{Geodesic\_subpath\_number}.
+
 
 \subsection*{Najmanjše/največje število podpoti}
 
 \textbf{Mali grafi}
 \begin{itemize}
-    \item Tako kot v prvem delu sva najprej napisala kodo za majhne grafe in zanje poiskala točne rešitve. 
+    \item Tako kot v prvem delu sva najprej napisala kodo za majhne grafe in zanje poiskala točne rešitve.
         Za ciklomatska števila od $\mu = 1$ do $\mu = 8$ sva za grafe z največ $10$ vozlišči generirala vse grafe ter izmed njih izbrala tiste 
         z najmanjšim oziroma največjim številom podpoti.\\
         Koda je zapisana v datoteki \texttt{2del\_subpath\_mali\_grafi.ipynb}, rezultati pa v \\
         \texttt{2del\_subpath\_mali\_grafi.csv}.\\
         Za lažjo analizo oblik grafov sva si vse slike v drugem delu shranjevala v mapi \texttt{slike\_max} in \texttt{slike\_min}, 
         kjer ime slike vsebuje par $(\mu, n)$, na katerega se nanaša.
-    \item \textbf{Ugotovitev:} \\
+ \end{itemize} 
+ 
+ \bigskip
 
+\textbf{Veliki grafi}
+\begin{itemize}
+    \item Tudi v drugem delu sva za »večje grafe« uporabila metodo simuliranega ohlajanja. 
+    Za vsa $\mu$ od $1$ do $8$ sva izvedla SA za grafe z $n = 10$ do $n = 30$.
+    
+    \item Začetne približke sva izbrala podobno kot v prvem delu: vzela sva graf z enakim ciklomatskim številom, 
+    vendar z enim vozliščem manj, nato pa sva v ta graf dodala še eno vozlišče in eno povezavo, tako da je graf ostal povezan.
+    
+    \item Povezavo sva dodajala na dva različna načina. Najprej sva jo v graf dodala naključno, nato pa sva jo dodala 
+    v tisto vozlišče, ki ima največjo stopnjo. Koda za oba načina je zapisana v datoteki \texttt{2del\_subpath\_SA.ipynb}. 
+    Rezultati za naključno dodajanje povezave so zapisani v \texttt{2del\_subpath\_SA.csv}, 
+    za dodajanje v vozlišče z največjo stopnjo pa v \texttt{2del\_subpath\_SA\_v\_sredisce.csv}.
+    
+    \item \textbf{Ugotovitve za oba načina dodajanja povezave:}\\
+    Za minimum oba pristopa vrneta enako vrednost najmanjšega števila podpoti, razlikujeta pa se obliki grafov. 
+    To je smiselno, saj je število podpoti enako ne glede na to, ali so vsa vozlišča pripeta na eno »sredinsko« vozlišče 
+    ali pa so razporejena v verigo; tudi število ciklov ostane enako v obeh primerih. 
+    Na primer, pri $\mu = 3$ ima graf z minimalnim številom podpoti tri trikotne cikle, preostala vozlišča pa so razporejena v verigo.\\
+    Tudi za maksimum sta pristopa primerljiva: v nekaterih primerih ena metoda vrne nekoliko večje število podpoti, v drugih pa druga. 
+    Večjo vrednost navadno vrne pristop, ki najde graf, kjer so nova vozlišča vključena v cikel in ne kot listi, pripeti na eno vozlišče. 
+    To obnašanje je posledica stohastične narave metode SA in ga ne moreva povsem odpraviti.
+\end{itemize}
+
+\bigskip
+
+ \textbf{Ugotovitve:} \\
+        Pri grafih z majhnim številom vozlišč in majhnim ciklomatskim številom sva ugotovila, da so se pri minimiziranju števila podpoti grafi nagibali k strukturi,
+        sestavljeni iz ciklov dolžine $3$, kar je razvidno tudi iz slike 8. Cikli dolžine tri so večinoma imeli eno skupno vozlišče, kar se je pojavilo v primerih, ko je bilo glede na dano ciklomatsko število na voljo dovolj vozlišč.
+        Ob povečanju ciklomatskega števila sva opazila, da se je dodal samo še en nov cikel dolžine 3, ko je bilo število vozlišč dovolj veliko vrednost. Ostala vozlišča so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
+        TO LAHKO NAPIŠEŠ MALO BOLJ RAZUMLJIVO, ČE SE SLUČAJNO SPOMNEŠ KAKO BI TO ZAPISOV, ČE NE,, JE OKEJ
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/max_stopnja.png}
+            \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
+            \caption{Števila ciklov dolžine 3 za minimum glede na $\mu$ in $n$ }
+            \label{fig:c3_min_grafi.png}
         \end{figure}
 
-        Pri grafih z majhnim \v{s}tevilom vozli\v{s}\v{c} in majhnim ciklomatskim \v{s}tevilom sva ugotovila, da so se pri minimiziranju \v{s}tevila podpoti grafi nagibali k strukturi,
-        sestavljeni iz ciklov dol\v{z}ine $3$, ki so imeli skupno eno vozli\v{s}\v{c}e, kar se je pojavilo v primerih, ko je bilo glede na dano ciklomatsko \v{s}tevilo na voljo dovolj vozli\v{s}\v{c}.
-        Tako se je ob povečanju ciklomatskega stevila dodal še en nov cikel dolžine 3, ko je število vozlišč dovolj veliko vrednost.
+
 
         \begin{figure}[H]
             \centering
@@ -302,12 +336,8 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
             \end{minipage}
         \end{figure}
 
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
-        \end{figure}
+            V KOMENTARJE SLIK NAPIŠI TUDI KOLIKO VOZLIŠČ IMAJO PROSIM
 
-        Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča. \\
         Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsako vozčišče vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
         Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu (izjema je primer, ko je ciklomatsko stevilo 1) z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala proti 3.
 
@@ -326,73 +356,50 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
             \end{minipage}
         \end{figure}
 
+
+        SPODNJI DVE SLIKI ALI POVEJ UGOTOVITEV, ALI PA JIH NEKAKO RAZLOŽI ALI PA SE NA NJIH SKLICUJ, DRUGAČE JIH DAJ VEN, ŠE POSEBEJ ZGORNJO
         \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png}
         \end{figure}
 
-\end{itemize}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{../Grafi_za_porocilo/max_stopnja.png}
+        \end{figure}
 
 
-\textbf{Veliki grafi}
-\begin{itemize}
-    \item Tudi v drugem delu sva za »večje grafe« uporabila metodo simulated annealing (SA). 
-    Za vsa $\mu$ od $1$ do $8$ sva izvedla SA za grafe z $n = 10$ do $n = 30$.
-    
-    \item Začetne približke sva izbrala podobno kot v prvem delu: vzela sva graf z enakim ciklomatskim številom, 
-    vendar z enim vozliščem manj, nato pa sva v ta graf dodala še eno vozlišče in eno povezavo, tako da je graf ostal povezan.
-    
-    \item Povezavo sva dodajala na dva različna načina. Najprej sva jo v graf dodala naključno, nato pa sva jo dodala 
-    v tisto vozlišče, ki ima največjo stopnjo.
-    
-    \item Koda za oba načina je zapisana v datoteki \texttt{2del\_subpath\_SA.ipynb}. 
-    Rezultati za naključno dodajanje povezave so zapisani v \texttt{2del\_subpath\_SA.csv}, 
-    za dodajanje v vozlišče z največjo stopnjo pa v \texttt{2del\_subpath\_SA\_v\_sredisce.csv}.
-    
-    \item \textbf{Ugotovitve za oba načina dodajanja povezave:}\\
-    Za minimum oba pristopa vrneta enako vrednost najmanjšega števila podpoti, razlikujeta pa se obliki grafov. 
-    To je smiselno, saj je število podpoti enako ne glede na to, ali so vsa vozlišča pripeta na eno »sredinsko« vozlišče 
-    ali pa so razporejena v verigo; tudi število ciklov ostane enako v obeh primerih. 
-    Na primer, pri $\mu = 3$ ima graf z minimalnim številom podpoti tri trikotne cikle, preostala vozlišča pa so razporejena v verigo.\\
-    Tudi za maksimum sta pristopa primerljiva: v nekaterih primerih ena metoda vrne nekoliko večje število podpoti, v drugih pa druga. 
-    Večjo vrednost navadno vrne pristop, ki najde graf, kjer so nova vozlišča vključena v cikel in ne kot listi, pripeti na eno vozlišče. 
-    To obnašanje je posledica stohastične narave metode SA in ga ne moreva povsem odpraviti.
-    
-\end{itemize}
+
+\textbf{Izrek Knorra:}\\
+V drugem delu projektne naloge sva želela preveriti veljavnost izreka Knorra, saj je to predstavljalo edini smiselni način, kako ta izrek vključiti v najino projektno nalogo. 
+V datoteki \texttt{pregledovanje\_lastnosti\_subpath.ipynb} sva zapisala kodo, ki za vse obravnavane grafe preveri, ali so kaktusni ali PTC-grafi. Dobljene rezultate sva shranila v datoteko \texttt{pregledovanje\_lastnosti\_subpath.csv}.
+Izrek Knorra trdi, da mora biti graf z največjim številom podpoti PTC, če je hkrati kaktusen. 
+Da bi preverila, ali ta implikacija dejansko velja, sva zapisala funkcijo, ki na podlagi izračunanih lastnosti preveri izpolnjenost pogoja. Rezultati so pokazali, da izrek v obravnavanih primerih drži.
 
 
-\textbf{Lastnosti:}
- V drugem delu projektne naloge sva prav tako želela preveriti ali Izrek Knor-a zares trdi. 
-    V drugem smislu nisva našla smiselne ideje kako bi imelementirata ta izrek v najino projektno nalogo, saj sva midva iskala grafe z največjim in najmanšim številom podpoti na vseh grafi in ne samo na kaktusnih grafih.
-    ZA vse grafe v datoteki \texttt{2del\_subpath\_SA.csv}, sva v datoteki \texttt{pregledovanje\_lastnosti\_subpath.ipynb} 
-    Zapisovala funkcije, ki za vsak max in vsak min graf ali je kaktusni in ali je PTC graf. Rezulati so zapisani v datoteki \texttt{pregledovanje\_lastnosti\_subpath.csv} 
-    Izrek Knor-a trdi, da v primeru da je graf z največjim številom podpoti kaktusen mora biti tudi PTC. Da sva preverila če ta implikacija res trdi sva zapisala funkcijo, 
-    ki nam glede narezultate lastnosti preveri če drži in rezultat je bil da je izrek res
-
+\bigskip
 
 \subsection*{Najmanjše/največje število geodetskih podpoti}
-
 \textbf{Mali grafi}
 \begin{itemize}
-    \item Za geodetske podpoti sva uporabila isto kodo kot sva jo zapisala v 2.delu za majhne grafe, torej kot je zapisana v \texttt{2del\_subpath\_mali\_grafi.ipynb},
-    na novo sva definirala samo funkcijo, ki išče geodetske podpoti
-    \item koda je zapisana v datoteki \texttt{2del\_geodesic\_mali\_garfi.ipynb.ipynb}. Rezultati so zapisani v \texttt{2del\_geodesic\_mali\_garfi.csv}
-    Slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_max}
-    \item kodo sva pognala za ciklomatska števila od $\mu = 1$ do $\mu = 8$ sva za grafe z največ $10$ vozlišči
+    \item Za geodetske podpoti sva uporabila isto kodo, kot je zapisana v datoteki \\ \texttt{2del\_subpath\_mali\_grafi.ipynb}, pri čemer sva na novo definirala le funkcijo za iskanje geodetskih podpoti. 
+    Kot sva že omenila sva obravnala grafe za ciklomatska števila od $\mu = 1$ do $\mu = 8$ in z največ desetimi vozlišči.
+    \item Koda je zapisana v datoteki \texttt{2del\_geodesic\_mali\_grafi.ipynb}, rezultati so shranjeni v datoteki \texttt{2del\_geodesic\_mali\_grafi.csv}, slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_min}.
 \end{itemize}
+
 
 \textbf{Veliki grafi}
 \begin{itemize}
-    \item za velike grafe pri iskanju geodetskih poti sva prav tako uporabila isto kodo kot v 2.delu za isnje podpoti, 
-    le da sedaj koda isšče najmanjše število geodetskih podpoti
-    \item koda je zapisana v datoteki \texttt{2del\_geodesic\_SA.ipynb.ipynb}. Rezultati so zapisani v \texttt{2del\_geodesic\_SA.csv}
-    Slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_max}
-    \item za geodetske podpoti sva začetnim približkom povezala samo randomly in ne v vozlišče z največjo stopnjo.
-    \item \textbf{ugotovitve} \\
-    Pri minimiziranju geodetskega \v{s}tevila poti v grafih se je pri $\mu \geq 3$ za\v{c}elo pojavljati, da grafi niso ve\v{c} vsebovali zgolj ciklov dol\v{z}ine $3$, 
-    temve\v{c} so za\v{c}eli tvoriti strukture, ki jih lahko opi\v{s}emo kot nekak\v{s}ne piramide v prostoru. Pri $\mu = 3$ ima graf eno tristrano piramido in eno centralno vozli\v{s}\v{c}e. 
-    Pri $\mu = 4$ se na to centralno vozli\v{s}\v{c}e doda \v{s}e en cikel dol\v{z}ine $3$, pri $\mu = 5$ pa \v{s}e en tak cikel, dokler se pri $\mu = 6$ ne ustvari ena \v{s}tiristrana piramida. 
+    \item Pri velikih grafih sva za geodetske podpoti prav tako uporabila isto kodo kot v prejšnjem primeru za velike grafe, le da sedaj koda išče najmanjše število geodetskih podpoti.
+    \item Koda je zapisana v datoteki \texttt{2del\_geodesic\_SA.ipynb}, rezultati so shranjeni v datoteki \texttt{2del\_geodesic\_SA.csv}, slike pa so shranjene v mapah \texttt{slike\_geodesic\_max} in \texttt{slike\_geodesic\_min}.
+\end{itemize}
 
+\textbf{Ugotovitve} \\
+    Pri minimiziranju geodetskega števila poti v grafih se je pri $\mu \geq 3$ začelo pojavljati, da grafi niso več vsebovali zgolj ciklov dolžine $3$, 
+    temve\v{c} so za\v{c}eli tvoriti strukture, ki jih lahko opi\v{s}emo kot nekak\v{s}ne piramide v prostoru. Pri $\mu = 3$ ima graf eno tristrano piramido in eno centralno vozlišče. 
+    Pri $\mu = 4$ se na to centralno vozlišče doda še en cikel dolžine $3$, pri $\mu = 5$ pa \v{s}e en tak cikel, dokler se pri $\mu = 6$ ne ustvari ena štiristrana piramida. 
+    Pri nadaljnjem povečevanju ciklomatskega števila se vzorec nadaljuje podobno: najprej nastajajo novi cikli dolžine $3$, dokler se ponovno ne oblikuje nova piramidna struktura.
     \begin{figure}[H]
         \centering
         \begin{minipage}{0.4\textwidth}
@@ -408,9 +415,9 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     \end{figure}
 
 
-    Pri nadaljnjem pove\v{c}evanju ciklomatskega \v{s}tevila se vzorec nadaljuje podobno: najprej nastajajo novi cikli dol\v{z}ine $3$, dokler se ponovno ne oblikuje nova piramidna struktura.
-    Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega \v{s}tevila oblikujejo grafi, v katerih so cikli povezani zaporedno in skupaj tvorijo verigo.
 
+    Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega števila oblikujejo grafi, v katerih so cikli povezani zaporedno in skupaj tvorijo verigo.
+    TU LAHKO POVEŠ ŠE DA SE OBLIKUJEJO CIKLI DOLŽINE 4 PA TISTI NEKI THETA CIKLI IN KEJ ŠE O NJIH POVEŠ  ČE SE POJAVLJAJO
     \begin{figure}[H]
         \centering
         \begin{minipage}{0.48\textwidth}
@@ -428,6 +435,6 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
     \end{figure}
 
 
-\end{itemize}
+
 
 \end{document}
