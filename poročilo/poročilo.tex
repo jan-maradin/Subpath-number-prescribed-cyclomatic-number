@@ -310,9 +310,10 @@ Vsa koda za drugi del je shranjena v mapi \texttt{2\_del}. Dokumenti, povezani z
 
  \textbf{Ugotovitve:} \\
         Pri grafih z majhnim številom vozlišč in majhnim ciklomatskim številom sva ugotovila, da so se pri minimiziranju števila podpoti grafi nagibali k strukturi,
-        sestavljeni iz ciklov dolžine $3$, kar je razvidno tudi iz slike 8. Cikli dolžine tri so večinoma imeli eno skupno vozlišče, kar se je pojavilo v primerih, ko je bilo glede na dano ciklomatsko število na voljo dovolj vozlišč.
-        Ob povečanju ciklomatskega števila sva opazila, da se je dodal samo še en nov cikel dolžine 3, ko je bilo število vozlišč dovolj veliko vrednost. Ostala vozlišča so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
-        TO LAHKO NAPIŠEŠ MALO BOLJ RAZUMLJIVO, ČE SE SLUČAJNO SPOMNEŠ KAKO BI TO ZAPISOV, ČE NE,, JE OKEJ
+        sestavljeni iz ciklov dolžine $3$, kar je razvidno tudi iz slike 9. Cikli dolžine tri so večinoma imeli eno skupno vozlišče. To se je pojavilo v primerih, ko je bil $\mu \leq 5$ in je bilo na voljo dovolj vozlišč, da so se taki cikli sploh lahko formirali.
+        Ob povečanju ciklomatskega števila sva opazila, da se je (ob dovolj velikem stevilu vozlišč) dodal samo še en nov cikel dolžine 3. Ostala vozlišča so tvorila eno ali več stebl, ki so v večini primerov izhajala iz istega središčnega vozlišča.
+        Pri $\mu \geq 6 $ pa so se začele tvoriti nekoliko drgačne strukture, kjer pa niso več vsi cikli dolžine 3 povezani z skupnim vozliščem. Nastalo je več skupkov ciklov dolžine 3, ki so bili povezani na centralno vozlišče.
+    
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
@@ -327,19 +328,20 @@ Vsa koda za drugi del je shranjena v mapi \texttt{2\_del}. Dokumenti, povezani z
             \begin{minipage}{0.4\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{../2_del/slike_min/graf_min_mu3_n11.png}
-                \caption{MIN Graf za $\mu=3$}
+                \caption{MIN Graf za $\mu=3$ in $n=11$}
             \end{minipage}\hfill
             \begin{minipage}{0.4\textwidth}
                 \centering
                 \includegraphics[width=\textwidth]{../2_del/slike_min/graf_min_mu7_n18.png}
-                \caption{MIN Graf za $\mu=7$}
+                \caption{MIN Graf za $\mu=7$ in $n=18$}
             \end{minipage}
         \end{figure}
 
-            V KOMENTARJE SLIK NAPIŠI TUDI KOLIKO VOZLIŠČ IMAJO PROSIM
 
-        Pri maksimiziranju \v{s}tevila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsako vozčišče vsaj stopnjo $2$. To pomeni, da je bilo vsako vozli\v{s}\v{c}e del nekega cikla. 
-        Poleg tega se je pri fiksnem ciklomatskem \v{s}tevilu (izjema je primer, ko je ciklomatsko stevilo 1) z dodajanjem novih vozli\v{s}\v{c} maksimalna stopnja grafa zmanj\v{s}evala proti 3.
+
+        Pri maksimiziranju števila podpoti sva opazila, da je imel pri dobro skonstruiranih grafih vsako vozlišče vsaj stopnjo $2$. To pomeni, da je bilo vsako vozlišče del nekega cikla. 
+        Poleg tega se je pri fiksnem ciklomatskem številu (izjema je primer, ko je ciklomatsko stevilo 1) z dodajanjem novih vozlišč maksimalna stopnja grafa zmanjševala proti 3, kot je razvidno iz slike 13.
+        Razlog za izstopanje pri $\mu = 1$ se skriva v slabših optimumih, ki nama jih je zgradil SA. Dokaj očitno je, da bi optimalnih grafi morali tvorit natanko en cikel maksimalne dolžine.
 
         
         \begin{figure}[H]
@@ -357,17 +359,19 @@ Vsa koda za drugi del je shranjena v mapi \texttt{2\_del}. Dokumenti, povezani z
         \end{figure}
 
 
-        SPODNJI DVE SLIKI ALI POVEJ UGOTOVITEV, ALI PA JIH NEKAKO RAZLOŽI ALI PA SE NA NJIH SKLICUJ, DRUGAČE JIH DAJ VEN, ŠE POSEBEJ ZGORNJO
         \begin{figure}[H]
             \centering
             \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/max_stopnja_za_maxgrafe.png}
+            \caption{Maksimalna stopnja grafov v odvisnosti od $n$}
         \end{figure}
 
 
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\textwidth]{../Grafi_za_porocilo/max_stopnja.png}
+            \caption{Povprečna maksimalna stopnja grafov pri fiksnem $\mu$}
         \end{figure}
+
 
 
 
@@ -405,19 +409,18 @@ Da bi preverila, ali ta implikacija dejansko velja, sva zapisala funkcijo, ki na
         \begin{minipage}{0.4\textwidth}
             \centering
             \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu3_n12.png}
-            \caption{Graf za $\mu=3$}
+            \caption{MIN graf za $\mu=3$ in $n=12$}
         \end{minipage}\hfill
         \begin{minipage}{0.4\textwidth}
             \centering
             \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_min/graf_geodesic_min_mu4_n13.png}
-            \caption{Graf za $\mu=4$}
+            \caption{MIN graf za $\mu=4$ in $n=13$}
         \end{minipage}
     \end{figure}
 
 
 
-    Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega števila oblikujejo grafi, v katerih so cikli povezani zaporedno in skupaj tvorijo verigo.
-    TU LAHKO POVEŠ ŠE DA SE OBLIKUJEJO CIKLI DOLŽINE 4 PA TISTI NEKI THETA CIKLI IN KEJ ŠE O NJIH POVEŠ  ČE SE POJAVLJAJO
+    Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega števila oblikujejo grafi, v katerih so cikli dolžine 4 povezani zaporedno in skupaj tvorijo verigo.
     \begin{figure}[H]
         \centering
         \begin{minipage}{0.48\textwidth}
