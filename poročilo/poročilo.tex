@@ -10,6 +10,9 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{caption}
 
 
 
@@ -214,9 +217,37 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
     \item Za vsako od smeri (torej za max ali min) se je za vsako od teh treh načino koda izvajala med 30 in 40 miut
     \item \textbf{UGOTOVITVE:}
     
+        \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_min_n9.tex}
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_min.png}
+            \caption{Graf odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z $n=9$}
+            \label{fig:n9_odmiki_min}
+        \end{figure}
 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmiki_min.png}
+            \caption{Graf relativnih odmikov pri različnih začetih garfih SA za minimalno število podpoti v grafih z $n=9$}
+            \label{fig:n9_relativni_odmiki_min}
+        \end{figure}
 
+        \input{../1_del/SA_n9/analiza_v_R_n9/povzetek_max_n9.tex}
+    
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_odmiki_max.png}
+            \caption{Graf odmikov pri različnih začetih garfih SA za maksimalno število podpoti v grafih z $n=9$}
+            \label{fig:n9_odmiki_max}
+        \end{figure}
 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{../1_del/SA_n9/analiza_v_R_n9/n9_relativni_odmik_max.png}
+            \caption{Graf relativnih odmikov pri različnih začetih garfih SA za maksimalno število podpoti v grafih z $n=9$}
+            \label{fig:n9_relativni_odmiki_max}
+        \end{figure}
 \end{itemize}  
 
 
@@ -247,7 +278,7 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/max_stopnja.png}
+            \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/max_stopnja.png}
         \end{figure}
 
         Pri grafih z majhnim \v{s}tevilom vozli\v{s}\v{c} in majhnim ciklomatskim \v{s}tevilom sva ugotovila, da so se pri minimiziranju \v{s}tevila podpoti grafi nagibali k strukturi,
@@ -270,7 +301,7 @@ z iskanjem grafov z največjim oziroma najmanjšim številom geodetskih podpoti.
 
         \begin{figure}[H]
             \centering
-            \includegraphics[width=1\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
+            \includegraphics[width=0.9\textwidth]{../Grafi_za_porocilo/c3_min_grafi.png}
         \end{figure}
 
         Ostala vozlišća so tvorila vsaj eno steblo, ki je v večini primerov izhajala iz istega središčnega vozlišča.
