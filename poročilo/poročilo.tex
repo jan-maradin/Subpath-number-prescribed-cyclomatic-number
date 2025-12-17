@@ -255,7 +255,7 @@ Dobljene rezultate sva primerjala s točnimi vrednostmi, izračunanimi v prejšn
 
 \end{itemize}  
 
-ALSO KAJ TI NIMAŠ Š, Č Ž   AL ZAKAJ SO VLI SPODEJ TAKO ČUDNO ZAPISANI???
+
 \newpage
 
 \section*{2.~del projektne naloge}
@@ -310,7 +310,7 @@ Vsa koda za drugi del je shranjena v mapi \texttt{2\_del}. Dokumenti, povezani z
 
  \textbf{Ugotovitve:} \\
         Pri grafih z majhnim številom vozlišč in majhnim ciklomatskim številom sva ugotovila, da so se pri minimiziranju števila podpoti grafi nagibali k strukturi,
-        sestavljeni iz ciklov dolžine $3$, kar je razvidno tudi iz slike 9. Cikli dolžine tri so večinoma imeli eno skupno vozlišče. To se je pojavilo v primerih, ko je bil $\mu \leq 5$ in je bilo na voljo dovolj vozlišč, da so se taki cikli sploh lahko formirali.
+        sestavljeni iz ciklov dolžine $3$, kar je razvidno tudi iz slik 8 in 9. Cikli dolžine tri so večinoma imeli eno skupno vozlišče. To se je pojavilo v primerih, ko je bil $\mu \leq 5$ in je bilo na voljo dovolj vozlišč, da so se taki cikli sploh lahko formirali.
         Ob povečanju ciklomatskega števila sva opazila, da se je (ob dovolj velikem stevilu vozlišč) dodal samo še en nov cikel dolžine 3. Ostala vozlišča so tvorila eno ali več stebl, ki so v večini primerov izhajala iz istega središčnega vozlišča.
         Pri $\mu \geq 6 $ pa so se začele tvoriti nekoliko drgačne strukture, kjer pa niso več vsi cikli dolžine 3 povezani z skupnim vozliščem. Nastalo je več skupkov ciklov dolžine 3, ki so bili povezani na centralno vozlišče.
     
@@ -372,13 +372,12 @@ Vsa koda za drugi del je shranjena v mapi \texttt{2\_del}. Dokumenti, povezani z
             \caption{Povprečna maksimalna stopnja grafov pri fiksnem $\mu$}
         \end{figure}
 
+\newpage
 
-
-
-\textbf{Izrek Knorra:}\\
-V drugem delu projektne naloge sva želela preveriti veljavnost izreka Knorra, saj je to predstavljalo edini smiselni način, kako ta izrek vključiti v najino projektno nalogo. 
+\textbf{Izrek Knor-a:}\\
+V drugem delu projektne naloge sva želela preveriti veljavnost izreka, saj je to predstavljalo edini smiselni način, kako ta izrek vključiti v najino projektno nalogo. 
 V datoteki \texttt{pregledovanje\_lastnosti\_subpath.ipynb} sva zapisala kodo, ki za vse obravnavane grafe preveri, ali so kaktusni ali PTC-grafi. Dobljene rezultate sva shranila v datoteko \texttt{pregledovanje\_lastnosti\_subpath.csv}.
-Izrek Knorra trdi, da mora biti graf z največjim številom podpoti PTC, če je hkrati kaktusen. 
+Izrek Knor-a trdi, da mora biti graf z največjim številom podpoti PTC, če je hkrati kaktusen. 
 Da bi preverila, ali ta implikacija dejansko velja, sva zapisala funkcijo, ki na podlagi izračunanih lastnosti preveri izpolnjenost pogoja. Rezultati so pokazali, da izrek v obravnavanih primerih drži.
 
 
@@ -420,24 +419,21 @@ Da bi preverila, ali ta implikacija dejansko velja, sva zapisala funkcijo, ki na
 
 
 
-    Pri maksimiziranju sva ugotovila, da se v odvisnosti od geodetskega števila oblikujejo grafi, v katerih so cikli dolžine 4 povezani zaporedno in skupaj tvorijo verigo.
+    Pri maksimiziranju sva ugotovila, da se v veliko primerih oblikejo grafi, v katerih so cikli dolžine štiri povezani zaporedno in skupaj tvorijo verigo, kar je razvidno tudi iz slik 17 in 18.
     \begin{figure}[H]
         \centering
         \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu3_n14.png}
-            \caption{MAX graf za $\mu=3$}
+            \caption{MAX graf za $\mu=3$ in $n=14$}
             \label{fig:max_mu3}
         \end{minipage}\hfill
         \begin{minipage}{0.48\textwidth}
             \centering
             \includegraphics[width=\textwidth]{../2_del/Geodesic_subpath_number/slike_geodesic_max/graf_geodesic_max_mu4_n16.png}
-            \caption{MAX graf za $\mu=4$}
+            \caption{MAX graf za $\mu=4$ in $n = 16$}
             \label{fig:max_mu4}
         \end{minipage}
     \end{figure}
-
-
-
 
 \end{document}
